@@ -69,6 +69,10 @@ OUTPUT OPTIONS
   --fields <a,b,c>     Dotted field paths to emit; fewer fields, fewer tokens
   --raw                Emit the untouched AliExpress payload instead
   --quiet              Suppress progress notes on stderr
+  --mint               If AliExpress refuses a product lookup, run its anti-bot
+                       scripts under JSDOM to mint the cookie it wants, then
+                       retry. Costs a few seconds and pulls in npm packages, so
+                       it is opt-in. Needs a permissive run (-A).
 
 LOCALE OPTIONS
   --locale <l>         Site locale, e.g. ja_JP, en_US (default en_US)
@@ -171,6 +175,11 @@ const SCHEMA = {
     table: { type: "boolean", description: "Force plain-text table" },
     fields: { type: "string", description: "Comma-separated dotted field paths" },
     raw: { type: "boolean", description: "Emit the untouched upstream payload" },
+    mint: {
+      type: "boolean",
+      description: "Recover from a refused product lookup by minting the anti-bot cookie. " +
+        "Adds seconds and npm dependencies; opt-in.",
+    },
     quiet: { type: "boolean", description: "Suppress stderr progress notes" },
     locale: { type: "string", default: "en_US" },
     currency: { type: "string", default: "USD" },
@@ -365,6 +374,7 @@ async function main(argv: string[]): Promise<number> {
       "table",
       "raw",
       "quiet",
+      "mint",
       "help",
       "version",
       "free-shipping",
@@ -415,6 +425,15 @@ async function main(argv: string[]): Promise<number> {
     currency: args.currency ? String(args.currency) : "USD",
     country: args.country ? String(args.country) : "US",
     cookie: Deno.env.get("ALIEXPRESS_COOKIE"),
+    // Imported only when asked for: it pulls in JSDOM, which nothing else here
+    // needs, and costs seconds per lookup.
+    cookieProvider: args.mint === true
+      ? async () => {
+        console.error("blocked; minting an anti-bot cookie (a few seconds)...");
+        const { mintSessionCookie } = await import("../src/baxia.ts");
+        return await mintSessionCookie();
+      }
+      : undefined,
   });
 
   switch (command) {

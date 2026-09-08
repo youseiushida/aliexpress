@@ -67,8 +67,16 @@ AliExpress payloads are large, undocumented, and A/B-tested. When normalization 
 need, `raw` means you are inconvenienced rather than blocked.
 
 Fields that AliExpress may omit are typed as nullable rather than optional, so there is one shape to
-branch on. Notably, **about a fifth of search results carry no price at all** — that is the
-platform's behaviour, not a parsing failure.
+branch on. Two cases are worth knowing before you plan around them:
+
+- **About a fifth of search results carry no price at all.** That is the platform's behaviour, not a
+  parsing failure.
+- **Search never carries store information.** `store` is always `null` there; the seller name and
+  feedback score only arrive with `product()`.
+
+`url` is always the canonical `https://<host>/item/<id>.html`. AliExpress' own `productDetailUrl` is
+not used: on promoted listings it is a campaign landing page rather than the product, which was true
+of three of the first four results on one live search.
 
 ### Errors
 

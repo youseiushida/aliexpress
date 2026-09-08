@@ -73,6 +73,32 @@ Deno.test("normalizeSearch exposes filters and sorts", () => {
   assert(sorts.includes("price_desc"), `expected price_desc in ${sorts.join(",")}`);
 });
 
+Deno.test("normalizeProduct ignores campaign links and builds the canonical URL", () => {
+  // Observed live: three of the first four results for one query carried a
+  // promo landing page in `productDetailUrl` instead of the product page.
+  // Trusting that field hands callers a link to a campaign, not an item.
+  const promoted = normalizeProduct({
+    productId: "1005006860885924",
+    productDetailUrl: "https://www.aliexpress.com/ssr/300000512/jp2024update" +
+      "?productIds=1005006860885924:12000038542541787&pha_manifest=ssr&sourceName=SEARCHProduct",
+  }, HOST);
+  assertEquals(promoted?.url, "https://ja.aliexpress.com/item/1005006860885924.html");
+
+  // And the ordinary case lands on the same shape, so callers see one form.
+  const plain = normalizeProduct({
+    productId: "1005007319706057",
+    productDetailUrl: "https://ja.aliexpress.com/item/1005007319706057.html",
+  }, HOST);
+  assertEquals(plain?.url, "https://ja.aliexpress.com/item/1005007319706057.html");
+});
+
+Deno.test("every fixture item gets a canonical, id-matching URL", () => {
+  const { items } = normalizeSearch(searchFixture, "q", HOST);
+  for (const item of items) {
+    assertEquals(item.url, `https://${HOST}/item/${item.id}.html`);
+  }
+});
+
 Deno.test("normalizeProduct skips non-product cards", () => {
   assertEquals(normalizeProduct({ itemType: "ad" }, HOST), null);
   assertEquals(normalizeProduct(null, HOST), null);

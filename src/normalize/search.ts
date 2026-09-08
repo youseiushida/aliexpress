@@ -58,7 +58,12 @@ export function normalizeProduct(raw: unknown, host: string): Product | null {
   return {
     id,
     title: str(pick(raw, "title.displayTitle")) ?? str(pick(raw, "title.seoTitle")) ?? "",
-    url: absUrl(pick(raw, "productDetailUrl")) ?? productUrl(host, id),
+    // Always synthesized, never AliExpress' own `productDetailUrl`: for
+    // promoted listings that field is a campaign landing page
+    // (`/ssr/300000512/jp2024update?productIds=...`) rather than the product,
+    // which was true of three of the first four results on a live search. The
+    // canonical form resolves for every listing and carries no tracking.
+    url: productUrl(host, id),
     image: primary,
     images,
     price: price(
