@@ -8,6 +8,7 @@
     "jsr:@std/encoding@1": "1.0.11",
     "jsr:@std/encoding@^1.0.11": "1.0.11",
     "jsr:@std/internal@^1.0.12": "1.0.14",
+    "jsr:@std/yaml@1": "1.2.0",
     "npm:happy-dom@20": "20.14.0",
     "npm:jsdom@25": "25.0.1",
     "npm:jsdom@^25.0.1": "25.0.1"
@@ -30,6 +31,9 @@
     },
     "@std/internal@1.0.14": {
       "integrity": "291516b3d4c35024d6ffbc0a9df5bf4c64116e05b50012cf846710152d2ffdf7"
+    },
+    "@std/yaml@1.2.0": {
+      "integrity": "20beb41e4983ba3437dbefac62b14061ab058e8a187596f19d28ff9035f6e6cf"
     }
   },
   "npm": {

@@ -23,6 +23,7 @@ jobs:
         with:
           deno-version: v2.x
 
+      # Kept as separate steps so a red build says which gate failed at a glance.
       - name: Format
         run: deno fmt --check
 
@@ -30,7 +31,7 @@ jobs:
         run: deno lint
 
       - name: Type check
-        run: deno check mod.ts cli/main.ts tests/live/canary.ts
+        run: deno check mod.ts cli/main.ts src/baxia.ts tests/live/canary.ts tests/live/cli.ts tests/live/mint.ts
 
       - name: Unit tests
         run: deno test --allow-read tests/unit/

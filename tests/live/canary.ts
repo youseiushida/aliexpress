@@ -68,6 +68,9 @@ const DETAIL_COVERAGE = {
   skus: 1,
 } as const;
 
+/** A second locale, to prove the locale/currency switch is not cosmetic. */
+const ALT = { locale: "en_US", currency: "USD", country: "US" } as const;
+
 export type CheckStatus = "pass" | "fail" | "blocked";
 
 export interface CheckResult {
@@ -202,7 +205,102 @@ export async function runCanary(): Promise<CheckResult[]> {
     });
   }
 
-  // 5. Product detail, including the MTOP signature handshake.
+  // 5. Filters actually filter. Same reasoning as sorting: a switch AliExpress
+  //    stops honouring looks identical to one it never honoured.
+  const filtered = await fetchFor(
+    "filters",
+    () => ae.search(QUERY, { choice: true, fourStarsUp: true }),
+  );
+  if (page1 && filtered) {
+    check("filters take effect", () => {
+      const selected = filtered.filters
+        .flatMap((group) => group.options)
+        .filter((option) => option.selected)
+        .map((option) => option.value);
+      for (const code of ["filterCode:choice_atm", "filterCode:4StarRating"]) {
+        if (!selected.includes(code)) {
+          throw new Error(`${code} was not echoed back as selected; got ${selected.join(", ")}`);
+        }
+      }
+      const ids = new Set(page1.items.map((item) => item.id));
+      const changed = filtered.items.filter((item) => !ids.has(item.id)).length;
+      if (changed === 0) {
+        throw new Error("filtered results are identical to unfiltered — the switches are ignored");
+      }
+      const rated = filtered.items
+        .map((item) => item.rating)
+        .filter((rating): rating is number => rating !== null);
+      const belowFour = rated.filter((rating) => rating < 4).length;
+      return {
+        detail:
+          `${changed}/${filtered.items.length} differ; ${belowFour}/${rated.length} rated under 4`,
+      };
+    });
+  }
+
+  // 6. The price range narrows what comes back to the range asked for.
+  const ranged = await fetchFor(
+    "price range",
+    () => ae.search(QUERY, { minPrice: 500, maxPrice: 2000 }),
+  );
+  if (ranged) {
+    check("price range narrows results", () => {
+      const prices = ranged.items
+        .map((item) => item.price?.current.value)
+        .filter((value): value is number => value !== undefined);
+      if (prices.length < 5) throw new Error(`only ${prices.length} priced items to judge`);
+      const inside = prices.filter((value) => value >= 500 && value <= 2000).length;
+      if (inside / prices.length < 0.8) {
+        throw new Error(
+          `only ${inside}/${prices.length} inside 500-2000 — the pr parameter looks ignored`,
+        );
+      }
+      return { detail: `${inside}/${prices.length} within range` };
+    });
+  }
+
+  // 7. searchAll is the paging API most callers actually use, so exercise the
+  //    iterator itself rather than trusting that page 2 working implies it does.
+  const collected: string[] = [];
+  const walked = await fetchFor("searchAll", async () => {
+    for await (const item of ae.searchAll(QUERY, { limit: 90 })) collected.push(item.id);
+    return true;
+  });
+  if (walked) {
+    check("searchAll crosses a page boundary", () => {
+      if (collected.length <= 60) {
+        throw new Error(`only ${collected.length} items — it never fetched a second page`);
+      }
+      if (new Set(collected).size !== collected.length) {
+        throw new Error("searchAll yielded duplicate ids across pages");
+      }
+      return { detail: `${collected.length} unique items across pages` };
+    });
+  }
+
+  // 8. Locale and currency are constructor-level promises; check they land.
+  const alt = new AliExpress({ ...ALT, minRequestInterval: 2500 });
+  const altResult = await fetchFor("alternate locale", () => alt.search(QUERY));
+  if (altResult) {
+    check("locale and currency switch", () => {
+      const currencies = new Set(
+        altResult.items
+          .map((item) => item.price?.current.currency)
+          .filter((code): code is string => code !== undefined),
+      );
+      if (!currencies.has(ALT.currency)) {
+        throw new Error(
+          `asked for ${ALT.currency}, got ${[...currencies].join(", ") || "no priced items"}`,
+        );
+      }
+      if (alt.host !== "www.aliexpress.com") {
+        throw new Error(`expected www.aliexpress.com for ${ALT.locale}, got ${alt.host}`);
+      }
+      return { detail: `${alt.host}, currencies ${[...currencies].join(",")}` };
+    });
+  }
+
+  // 9. Product detail, including the MTOP signature handshake.
   //
   //    MTOP is gated far harder than search: it answers RGV587_ERROR after a
   //    modest number of calls even when search is entirely healthy. Losing this

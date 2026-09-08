@@ -2,16 +2,25 @@ name: Canary
 
 # Is this library still working against the real AliExpress?
 #
-# The run has three outcomes and they are deliberately not treated alike:
+# Three suites, because they fail for different reasons and need different
+# dependencies:
 #
-#   0  everything works.
-#   3  AliExpress blocked everything, so nothing was exercised. GitHub's
-#      egress IPs are a plausible target for that, and it says nothing about
-#      our code, so the job reports a warning and passes. Filing an issue here
-#      would train everyone to ignore this workflow. A run where only some
-#      checks were refused still exits 0 and names them in the summary.
-#   4  the request succeeded but fields we depend on stopped arriving. That is
-#      real: the normalizer is silently returning nulls, and an issue is filed.
+#   core  — search, paging, sorting, filters, locale, product detail
+#   cli   — the published command line contract: exit codes, stream separation,
+#           --fields, the machine-readable schema
+#   mint  — the optional ./baxia entry point, which needs JSDOM from npm
+#
+# Each reports one of three outcomes, and they are deliberately not treated
+# alike:
+#
+#   0  everything that ran, passed.
+#   3  AliExpress refused everything, so nothing was exercised. GitHub's egress
+#      IPs are a plausible target for that, and it says nothing about our code,
+#      so the job warns and passes. Filing an issue here would train everyone to
+#      ignore this workflow. A run where only some checks were refused still
+#      exits 0 and names them in the summary.
+#   4  requests succeeded but fields we depend on stopped arriving. That is real:
+#      the normalizer is silently returning nulls, and an issue is filed.
 
 on:
   schedule:
@@ -39,41 +48,81 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Probe AliExpress
-        id: probe
+      - name: Probe the library
+        id: core
         env:
           AE_CANARY_QUERY: ${{ inputs.query || 'usb cable' }}
         run: |
           set +e
-          deno run --allow-net --allow-env --allow-write tests/live/canary.ts | tee report.md
-          code=${PIPESTATUS[0]}
-          set -e
-          echo "code=$code" >> "$GITHUB_OUTPUT"
+          deno task canary | tee -a report.md
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Probe the CLI
+        id: cli
+        run: |
+          set +e
+          printf '\n\n### CLI\n\n' >> report.md
+          deno task canary:cli | tee -a report.md
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      # The mint suite is the only thing here that needs npm packages, so it runs
+      # last: a failure to install must not cost us the core results.
+      - name: Probe the cookie mint
+        id: mint
+        run: |
+          set +e
+          printf '\n\n### Mint\n\n' >> report.md
+          deno task canary:mint | tee -a report.md
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Combine outcomes
+        id: verdict
+        env:
+          CODES: ${{ steps.core.outputs.code }} ${{ steps.cli.outputs.code }} ${{ steps.mint.outputs.code }}
+        run: |
+          # Drift anywhere outranks everything else; "blocked" only stands when
+          # nothing at all got through.
+          verdict=3
+          for code in $CODES; do
+            if [ "$code" = "4" ] || [ "$code" = "1" ] || [ "$code" = "2" ]; then verdict=4; break; fi
+            if [ "$code" = "0" ]; then verdict=0; fi
+          done
+          echo "code=$verdict" >> "$GITHUB_OUTPUT"
+          echo "suites: $CODES -> verdict $verdict"
+
+      - name: Publish the report
+        run: cat report.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Blocked, not broken
-        if: steps.probe.outputs.code == '3'
+        if: steps.verdict.outputs.code == '3'
         run: |
-          echo "::warning title=Canary blocked::AliExpress refused this runner. \
-          The library was not exercised, so nothing can be concluded about it."
+          echo "::warning title=Canary blocked::AliExpress refused every request from this \
+          runner. The library was not exercised, so nothing can be concluded about it."
 
       - name: Report drift
-        if: steps.probe.outputs.code != '0' && steps.probe.outputs.code != '3'
+        if: steps.verdict.outputs.code == '4'
         env:
           GH_TOKEN: ${{ github.token }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
-          title="Canary: AliExpress response shape changed"
+          title="Canary: AliExpress behaviour changed"
 
           # One issue per outage. Re-filing daily would bury the original
           # investigation under duplicates.
           existing=$(gh issue list --state open --label canary --json number --jq '.[0].number')
 
           {
-            echo "The live canary failed with exit code ${{ steps.probe.outputs.code }}."
+            echo "The live canary failed."
             echo
-            echo "Exit 4 means AliExpress answered but fields the normalizer depends on"
-            echo "were missing, so the library is returning nulls where it used to return"
-            echo "data. The coverage table below names which fields."
+            echo "Suite exit codes — core: ${{ steps.core.outputs.code }}, \
+          cli: ${{ steps.cli.outputs.code }}, mint: ${{ steps.mint.outputs.code }}"
+            echo
+            echo "Exit 4 means AliExpress answered but something we depend on stopped"
+            echo "working — a field the normalizer reads, a request parameter that is now"
+            echo "ignored, or a CLI contract. The report below names it."
             echo
             cat report.md
             echo
@@ -87,7 +136,7 @@ jobs:
           fi
 
       - name: Close a resolved drift issue
-        if: steps.probe.outputs.code == '0'
+        if: steps.verdict.outputs.code == '0'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -97,5 +146,5 @@ jobs:
           fi
 
       - name: Fail the job on drift
-        if: steps.probe.outputs.code != '0' && steps.probe.outputs.code != '3'
+        if: steps.verdict.outputs.code == '4'
         run: exit 1

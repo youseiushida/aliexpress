@@ -15,10 +15,12 @@
     "jsdom": "npm:jsdom@^25.0.1"
   },
   "tasks": {
-    "check": "deno fmt --check && deno lint && deno check mod.ts cli/main.ts tests/live/canary.ts",
+    "check": "deno fmt --check && deno lint && deno check mod.ts cli/main.ts src/baxia.ts tests/live/canary.ts tests/live/cli.ts tests/live/mint.ts",
     "test": "deno test --allow-read tests/unit/",
     "canary": "deno run --allow-net --allow-env --allow-write tests/live/canary.ts",
-    "cli": "deno run --allow-net --allow-env cli/main.ts"
+    "cli": "deno run --allow-net --allow-env cli/main.ts",
+    "canary:cli": "deno run --allow-net --allow-env --allow-write --allow-read --allow-run tests/live/cli.ts",
+    "canary:mint": "deno run -A --node-modules-dir=auto tests/live/mint.ts"
   },
   "fmt": {
     "lineWidth": 100,

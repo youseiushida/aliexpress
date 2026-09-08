@@ -202,31 +202,41 @@ The CLI is designed to be driven by an agent:
 
 ## Is it still working?
 
-Anything built on a site's own endpoints breaks when that site changes. Two layers of tests separate
-"we broke it" from "they changed it":
+Anything built on a site's own endpoints breaks when that site changes. The tests are split so that
+"we broke it" and "they changed it" can never be confused.
 
 ```sh
-deno task test     # offline, against frozen captures of real responses
-deno task canary   # live, against AliExpress right now
+deno task test         # offline, deterministic, against frozen captures
+deno task canary       # live: search, paging, sorting, filters, locale, detail
+deno task canary:cli   # live: the CLI contract, driven as a subprocess
+deno task canary:mint  # live: the ./baxia cookie mint (needs npm)
 ```
 
-The canary cannot assert on values — prices and listings change hourly. It asserts on **field
-coverage**: how often each normalized field comes out populated across a live page of 60 results. If
-`price.current.value` is filled for 78% of results today and 0% tomorrow, AliExpress changed its
-payload and the normalizer is silently dropping data. The failure names the exact field.
+**Offline** tests pin the raw-to-normalized mapping and the cookie-completeness rule against frozen
+captures. They need no network and cannot flake.
 
-It also checks that request parameters still take effect — that page 2 differs from page 1, and that
-`--sort price_asc` really returns ascending prices. A parameter that starts being ignored is
-invisible unless you look for it.
+**Live** suites answer what offline ones cannot. They avoid asserting on values — prices and
+listings change hourly — and assert instead on things that should hold regardless:
 
-Blocking is tracked per check. AliExpress rate limits the MTOP detail gateway far harder than search
-— it starts refusing product lookups while search is still perfectly healthy — so one throttled
-detail request must not discard the search results the run did establish. A run reports exit 3 only
-when nothing at all could be exercised; if some checks passed, it exits 0 and names the blocked
+- **Field coverage.** How often each normalized field comes out populated across a live page of 60
+  results. If `price.current.value` is filled for 78% of results today and 0% tomorrow, AliExpress
+  changed its payload and the normalizer is silently dropping data. The failure names the field.
+- **Parameters still taking effect.** Page 2 differs from page 1; `price_asc` really ascends;
+  `orders` really descends; the 4-star and Choice switches are echoed back and change the results; a
+  price range is honoured. A parameter that starts being ignored is invisible unless you look.
+- **The CLI's own contract.** Exit codes, the error envelope on stderr, `--fields` returning exactly
+  the requested keys, `--quiet` leaving stderr silent, an unknown command failing rather than
+  guessing, and `schema` staying valid JSON.
+- **The mint.** Three consecutive mints each producing a _complete_ cookie, values that differ from
+  each other, acceptance by the gateway, and a flagged client recovering through `cookieProvider`.
+
+Blocking is tracked per check. AliExpress rations the detail gateway far harder than search, so one
+throttled lookup must not discard the search results a run did establish. A suite reports exit 3
+only when nothing at all could be exercised; if some checks passed it exits 0 and names the blocked
 ones.
 
-`.github/workflows/canary.yml` runs this daily and treats the outcomes differently: exit 3 (nothing
-ran) logs a warning and passes, exit 4 (drift) opens an issue.
+`.github/workflows/canary.yml` runs all three daily. Exit 3 (nothing ran) logs a warning and passes;
+exit 4 (drift) opens an issue.
 
 ## Scope
 

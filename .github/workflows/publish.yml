@@ -30,7 +30,7 @@ jobs:
         run: |
           deno fmt --check
           deno lint
-          deno check mod.ts cli/main.ts
+          deno check mod.ts cli/main.ts src/baxia.ts
           deno test --allow-read tests/unit/
 
       - name: Publish

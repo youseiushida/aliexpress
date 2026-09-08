@@ -24,7 +24,7 @@
  * hang. It is unnecessary. Tracing `document.cookie` writes showed the cookie is
  * assembled locally, with no server round trip, by scripts the page merely
  * happens to include. Serving a blank document at the product URL with just
- * those three scripts produces the same cookie in about three seconds.
+ * those three scripts produces the same cookie in one to five seconds.
  *
  * The value arrives in stages, one field at a time, so waiting for the cookie to
  * merely exist is a trap: a one-field value appears within a second and the
@@ -70,8 +70,13 @@ const SCRIPTS = [
   "https://assets.alicdn.com/g/lzd_sec/LWSC-G/index.js",
 ];
 
-/** Every field the gateway requires. A partial cookie is refused. */
-const REQUIRED_FIELDS = ["lwrid", "tfstk", "lwrtk", "epssw"];
+/**
+ * Every field the gateway requires.
+ *
+ * Measured: a three-field value missing `epssw` was minted and refused, so
+ * "the cookie exists" is not the completion condition — this list is.
+ */
+export const REQUIRED_FIELDS = ["lwrid", "tfstk", "lwrtk", "epssw"] as const;
 
 const DEFAULT_UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " +
@@ -95,8 +100,13 @@ export interface MintOptions {
   allowPartial?: boolean;
 }
 
-/** Which of the required fields a cookie value carries. */
-function fieldsIn(cookie: string): string[] {
+/**
+ * Which of the required fields a cookie header carries.
+ *
+ * Exported so the completeness rule can be pinned by offline tests: getting it
+ * wrong means returning a cookie that only fails later, at the request.
+ */
+export function fieldsIn(cookie: string): string[] {
   const value = cookie.match(/_baxia_sec_cookie_=([^;]*)/)?.[1];
   if (!value) return [];
   let decoded: string;
@@ -151,6 +161,14 @@ export async function mintSessionCookie(options: MintOptions = {}): Promise<stri
   );
   const win = dom.window as unknown as MintedWindow;
 
+  // These pages leave promises in flight, and one rejecting after teardown would
+  // take the host process down with it — an unacceptable way for an optional
+  // recovery path to fail. Rejections are absorbed only for the span of the
+  // mint, which is short and runs nothing of the caller's.
+  const absorb = (event: Event) => event.preventDefault();
+  globalThis.addEventListener("unhandledrejection", absorb);
+  globalThis.addEventListener("error", absorb);
+
   try {
     const deadline = Date.now() + timeoutMs;
     let best = "";
@@ -184,5 +202,10 @@ export async function mintSessionCookie(options: MintOptions = {}): Promise<stri
     try {
       win.close();
     } catch { /* already torn down */ }
+    // Scripts still in flight can run against the closed document; give them a
+    // moment to fail while we are still absorbing.
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    globalThis.removeEventListener("unhandledrejection", absorb);
+    globalThis.removeEventListener("error", absorb);
   }
 }
