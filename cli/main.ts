@@ -80,6 +80,11 @@ LOCALE OPTIONS
   --country <c>        Shipping destination, e.g. JP, US (default US)
 
 ENVIRONMENT
+  ALIEXPRESS_EPSSW     A browser-issued epssw value, or a whole cookie header to
+                       take one from. This is the single field AliExpress
+                       validates, and JSDOM cannot produce an acceptable one, so
+                       --mint needs it once this machine has been flagged. It is
+                       reusable across mints.
   ALIEXPRESS_COOKIE    Cookie header to seed the session with. Only needed to
                        recover the product command after AliExpress has flagged
                        this machine; search never needs it. Read from the
@@ -197,6 +202,9 @@ const SCHEMA = {
     country: { type: "string", default: "US" },
   },
   environment: {
+    ALIEXPRESS_EPSSW:
+      "Browser-issued epssw value (or a cookie header to extract one from). The only field " +
+      "AliExpress validates; --mint needs it once this machine is flagged. Reusable.",
     ALIEXPRESS_COOKIE:
       "Cookie header to seed the session with. Only needed to recover the product command " +
       "after AliExpress has flagged this machine; search never needs it.",
@@ -441,8 +449,17 @@ async function main(argv: string[]): Promise<number> {
     cookieProvider: args.mint === true
       ? async () => {
         console.error("blocked; minting an anti-bot cookie (a few seconds)...");
-        const { mintSessionCookie } = await import("../src/baxia.ts");
-        return await mintSessionCookie();
+        const { epsswFrom, mintSessionCookie } = await import("../src/baxia.ts");
+        const supplied = Deno.env.get("ALIEXPRESS_EPSSW");
+        if (!supplied) {
+          console.error(
+            "note: without ALIEXPRESS_EPSSW the minted cookie is likely to be refused — " +
+              "JSDOM cannot produce an epssw AliExpress accepts.",
+          );
+        }
+        return await mintSessionCookie({
+          epssw: supplied ? epsswFrom(supplied) : undefined,
+        });
       }
       : undefined,
   });

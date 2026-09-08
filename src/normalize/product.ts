@@ -120,7 +120,12 @@ function normalizeSkus(
 
     const attributes: Record<string, string> = {};
     let image: string | null = null;
-    for (const pair of (str(pick(path, "path")) ?? "").split(",")) {
+    // A multi-property path is semicolon-delimited — "14:771;200007763:201336100"
+    // for a listing with both a colour and a ship-from. Splitting on a comma
+    // swallowed the whole string as one pair, so every such listing came back
+    // with variants priced but unlabelled. Both separators are accepted since
+    // only the semicolon has been seen in the wild.
+    for (const pair of (str(pick(path, "path")) ?? "").split(/[;,]/)) {
       const [propertyId, valueId] = pair.split(":");
       const property = dictionary.get(propertyId);
       const value = property?.values.get(valueId);
@@ -129,20 +134,21 @@ function normalizeSkus(
       image ??= value[1];
     }
 
-    // Some listings ship `skuPaths` without a matching `skuProperties` table, and
-    // the join above then yields variants priced but unlabelled — seen live on a
-    // four-variant board. `skuAttr` carries the same choice as
-    // `"14:691#USB3.0"`, so the display half after each `#` recovers the label
-    // even when the lookup table is missing. Named by position, since the
-    // property's own name is exactly what was unavailable.
-    if (Object.keys(attributes).length === 0) {
-      const parts = (str(pick(path, "skuAttr")) ?? "")
-        .split(";")
-        .map((part) => part.split("#")[1]?.trim())
-        .filter((label): label is string => Boolean(label));
-      parts.forEach((label, index) => {
-        attributes[parts.length === 1 ? "option" : `option${index + 1}`] = label;
-      });
+    // Fill any gap the lookup left. `skuProperties` is not always complete —
+    // one listing offered a colour whose value id was absent from the table, so
+    // that variant came back labelled only by its ship-from and a caller could
+    // not tell which one it was. `skuAttr` carries the same choice as
+    // `"14:691#USB3.0"`, so the half after each `#` recovers what is missing.
+    // Named by position, since an unresolved id is precisely a missing name.
+    const labels = (str(pick(path, "skuAttr")) ?? "")
+      .split(";")
+      .map((part) => part.split("#")[1]?.trim())
+      .filter((label): label is string => Boolean(label));
+    const known = new Set(Object.values(attributes));
+    let spare = 0;
+    for (const label of labels) {
+      if (known.has(label)) continue;
+      attributes[labels.length === 1 && spare === 0 ? "option" : `option${++spare}`] = label;
     }
 
     return [{

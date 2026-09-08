@@ -220,6 +220,112 @@ Deno.test("normalizeProductDetail resolves SKU attributes to readable labels", (
   assertEquals(sku.available, true);
 });
 
+Deno.test("a multi-property SKU path resolves every attribute", () => {
+  // Captured live from listing 1005010572771460, which has both a colour and a
+  // ship-from. Its paths are semicolon-delimited; splitting on a comma treated
+  // the whole string as one pair and left all four variants unlabelled, priced
+  // but indistinguishable.
+  const detail = normalizeProductDetail(
+    {
+      result: {
+        PRODUCT_TITLE: { text: "ESP32-S3 super mini" },
+        SKU: {
+          skuPaths: [
+            {
+              skuIdStr: "12000052858813955",
+              path: "14:4044226;200007763:201336100",
+              skuAttr: "200007763:201336100;14:4044226#10PCS",
+              skuStock: 13,
+              salable: true,
+            },
+            {
+              skuIdStr: "12000052858813956",
+              path: "14:350852;200007763:201336100",
+              skuAttr: "200007763:201336100;14:350852#1PCS",
+              skuStock: 5,
+              salable: true,
+            },
+          ],
+          skuProperties: [
+            {
+              skuPropertyId: 200007763,
+              skuPropertyName: "発送元",
+              skuPropertyValues: [
+                { propertyValueIdLong: 201336100, propertyValueDisplayName: "China Mainland" },
+              ],
+            },
+            {
+              skuPropertyId: 14,
+              skuPropertyName: "カラー",
+              skuPropertyValues: [
+                { propertyValueIdLong: 350852, propertyValueDisplayName: "1PCS" },
+                { propertyValueIdLong: 4044226, propertyValueDisplayName: "10PCS" },
+              ],
+            },
+          ],
+        },
+      },
+    },
+    "1005010572771460",
+    HOST,
+    "JPY",
+  );
+
+  assertEquals(detail.skus.map((sku) => sku.attributes), [
+    { "カラー": "10PCS", "発送元": "China Mainland" },
+    { "カラー": "1PCS", "発送元": "China Mainland" },
+  ]);
+  assertEquals(detail.skus.map((sku) => sku.stock), [13, 5]);
+});
+
+Deno.test("an id missing from the property table is recovered from skuAttr", () => {
+  // Live: listing 1005010572771460 offers a colour whose value id (771) is not
+  // in skuProperties, so that variant resolved to its ship-from alone and gave
+  // a caller no way to tell it from the others.
+  const detail = normalizeProductDetail(
+    {
+      result: {
+        PRODUCT_TITLE: { text: "x" },
+        SKU: {
+          skuPaths: [{
+            skuIdStr: "1",
+            path: "14:771;200007763:201336100",
+            skuAttr: "200007763:201336100;14:771#Not welded 5PCS",
+            skuStock: 0,
+            salable: false,
+          }],
+          skuProperties: [
+            {
+              skuPropertyId: 200007763,
+              skuPropertyName: "発送元",
+              skuPropertyValues: [
+                { propertyValueIdLong: 201336100, propertyValueDisplayName: "China Mainland" },
+              ],
+            },
+            // 771 is deliberately absent, as it is upstream.
+            {
+              skuPropertyId: 14,
+              skuPropertyName: "カラー",
+              skuPropertyValues: [
+                { propertyValueIdLong: 350852, propertyValueDisplayName: "1PCS" },
+              ],
+            },
+          ],
+        },
+      },
+    },
+    "1",
+    HOST,
+    "JPY",
+  );
+
+  // Only the colour is unresolved, so it lands under the singular name.
+  assertEquals(detail.skus[0].attributes, {
+    "発送元": "China Mainland",
+    option: "Not welded 5PCS",
+  });
+});
+
 Deno.test("SKU labels fall back to skuAttr when the property table is missing", () => {
   // Seen live: a four-variant listing returned prices and stock per SKU but no
   // attribute names at all, leaving a caller unable to tell the variants apart.

@@ -171,23 +171,41 @@ flag so it stays out of shell history and process listings.
 import { AliExpress } from "@youseiushida/aliexpress";
 import { mintSessionCookie } from "@youseiushida/aliexpress/baxia";
 
-const ae = new AliExpress({ cookieProvider: mintSessionCookie });
+const epssw = Deno.env.get("ALIEXPRESS_EPSSW"); // see below
+const ae = new AliExpress({ cookieProvider: () => mintSessionCookie({ epssw }) });
 await ae.product("1005008812285251"); // refused, mints, retries, succeeds
 ```
 
 This runs AliExpress' own anti-bot scripts under JSDOM against a blank document — no storefront, no
-browser — and takes two to six seconds. Measured: three mints out of three produced a complete
-cookie, and a flagged client recovered end to end in about seven seconds.
+browser — in one to five seconds. It is a separate entry point because JSDOM is around thirty
+transitive packages the core needs none of.
 
-It is deliberately a separate entry point. JSDOM is around thirty transitive packages and the core
-of this library needs none of them, so you only pay for it if you import it. Two caveats worth
-knowing before you rely on it: a minted cookie is **not reusable** — each detail lookup pays the
-mint again — and the whole thing is best-effort, since it executes third-party scripts under an
-incomplete DOM. Give it a fallback.
+### The one value the mint cannot produce
 
-Lighter routes were measured and rejected: running only the cookie-writing script under a hand-built
-zero-dependency shim yields one of the four required fields and is refused, and happy-dom produced
-no cookie at all in 31 seconds.
+A minted cookie has four fields, and **only `epssw` is validated**. That was established by swapping
+fields one at a time between a working browser cookie and a refused minted one: swapping `epssw`
+flipped the verdict in both directions, while `lwrid`, `tfstk` and `lwrtk` made no difference at
+all.
+
+`epssw` is a device fingerprint from a 366 KB obfuscated script. JSDOM has no canvas, and its value
+comes out at 239-295 characters against a browser's 391 — short enough that AliExpress refuses it.
+Minting alone is therefore **not sufficient** on a flagged machine, whichever page it loads from.
+
+The value is reusable, so it is needed once. Open any AliExpress page, read `_baxia_sec_cookie_`
+from `document.cookie`, and hand the whole thing over — the library extracts the field:
+
+```sh
+export ALIEXPRESS_EPSSW='%7B%22lwrid%22%3A…'   # the cookie value, as copied
+aliexpress product 1005008812285251 --mint --locale ja_JP --currency JPY --country JP
+```
+
+With it, mints are accepted and detail lookups work again; without it the CLI says so on stderr
+rather than failing mysteriously. `ALIEXPRESS_COOKIE` remains the alternative: hand over the whole
+browser session instead and skip minting.
+
+Two caveats worth knowing: a minted cookie is **not reusable** — each detail lookup pays the mint
+again — and the whole thing is best-effort, since it executes third-party scripts under an
+incomplete DOM.
 
 ## CLI
 

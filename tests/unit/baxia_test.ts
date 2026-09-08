@@ -1,5 +1,11 @@
-import { assert, assertEquals } from "@std/assert";
-import { fieldsIn, REQUIRED_FIELDS } from "../../src/baxia.ts";
+import { assert, assertEquals, assertThrows } from "@std/assert";
+import {
+  epsswFrom,
+  fieldsIn,
+  normalizeCookieHeader,
+  REQUIRED_FIELDS,
+  spliceEpssw,
+} from "../../src/baxia.ts";
 
 /**
  * Offline tests for the cookie-completeness rule.
@@ -52,8 +58,56 @@ Deno.test("fieldsIn returns nothing when the cookie is absent or malformed", () 
   assertEquals(fieldsIn("_baxia_sec_cookie_="), []);
 });
 
-Deno.test("fieldsIn survives a value that is not valid percent-encoding", () => {
-  // A truncated value must degrade to "incomplete", never throw mid-mint.
+Deno.test("a value that never resolves to JSON counts as nothing", () => {
+  // Reporting the field names a broken value happens to contain would call it
+  // complete and hand back a cookie that only fails at the request. Better to
+  // treat unreadable as empty and let the mint keep waiting.
   const broken = "_baxia_sec_cookie_=%E0%A4%A" + JSON.stringify({ lwrid: 1 });
-  assertEquals(fieldsIn(broken), ["lwrid"]);
+  assertEquals(fieldsIn(broken), []);
+});
+
+Deno.test("a double-encoded value is read, then emitted single-encoded", () => {
+  // JSDOM's cookie store re-encodes on read, so the value comes back as
+  // `%257B%2522lwrid…` where a browser sends `%7B%22lwrid…`. AliExpress decodes
+  // exactly once, so the doubled form arrives as `%7B%22lwrid…` — not JSON.
+  // Reading it is fine; emitting it is not.
+  const once = header(REQUIRED_FIELDS);
+  const twice = once.replace(
+    /_baxia_sec_cookie_=([^;]*)/,
+    (_, v) => `_baxia_sec_cookie_=${encodeURIComponent(v)}`,
+  );
+
+  assertEquals(fieldsIn(twice).length, 4);
+  assertEquals(normalizeCookieHeader(twice), once);
+  // Already-correct values must pass through unchanged.
+  assertEquals(normalizeCookieHeader(once), once);
+});
+
+Deno.test("epsswFrom accepts a bare value or a whole cookie header", () => {
+  const cookie = header(REQUIRED_FIELDS);
+  const value = cookie.match(/_baxia_sec_cookie_=([^;]*)/)![1];
+  assertEquals(epsswFrom(cookie), "value-for-epssw");
+  assertEquals(epsswFrom(value), "value-for-epssw");
+});
+
+Deno.test("epsswFrom rejects input it cannot read", () => {
+  assertThrows(() => epsswFrom("not a cookie"));
+  // A cookie without the field must not silently yield undefined.
+  assertThrows(() => epsswFrom(header(["lwrid", "tfstk", "lwrtk"])));
+});
+
+Deno.test("spliceEpssw swaps only that field", () => {
+  // The one field AliExpress validates, established by swapping each in turn
+  // between a working browser cookie and a refused minted one.
+  const spliced = spliceEpssw(header(REQUIRED_FIELDS), "from-a-real-browser");
+  const fields = JSON.parse(
+    decodeURIComponent(spliced.match(/_baxia_sec_cookie_=([^;]*)/)![1]),
+  );
+  assertEquals(fields.epssw, "from-a-real-browser");
+  assertEquals(fields.lwrid, "value-for-lwrid");
+  assertEquals(fields.tfstk, "value-for-tfstk");
+  assertEquals(fields.lwrtk, "value-for-lwrtk");
+  // Neighbouring cookies must survive untouched.
+  assert(spliced.startsWith("ali_apache_id=x;"));
+  assert(spliced.endsWith("xman_f=y"));
 });

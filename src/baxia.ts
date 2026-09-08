@@ -32,6 +32,17 @@
  * (missing `epssw`) was minted and refused. Hence {@link REQUIRED_FIELDS} and
  * the poll below, which waits for completeness rather than existence.
  *
+ * ## Minting alone is not enough
+ *
+ * Of the four fields in the cookie, only `epssw` is validated — swapping each in
+ * turn between a working browser cookie and a refused minted one flipped the
+ * verdict for that field and no other. It is a device fingerprint, JSDOM has no
+ * canvas, and the value comes out at 239-295 characters against a browser's 391.
+ * AliExpress refuses it, whichever page the mint loads from.
+ *
+ * So a flagged machine needs one browser-issued `epssw`, passed as
+ * {@link MintOptions.epssw}. It is reusable, so it is asked for once.
+ *
  * ## What was ruled out
  *
  * Running only the cookie-writing script under a hand-built zero-dependency
@@ -93,11 +104,81 @@ export interface MintOptions {
   /** How often to check whether the cookie is complete. Defaults to 500. */
   pollIntervalMs?: number;
   /**
+   * A browser-issued `epssw` to splice into the minted cookie.
+   *
+   * `epssw` is the only field AliExpress validates — established by swapping
+   * each field between a working browser cookie and a rejected minted one and
+   * seeing which flipped the verdict. It is a device fingerprint from a 366 KB
+   * obfuscated script, and JSDOM cannot produce an acceptable one: it has no
+   * canvas, and its value comes out at 239-295 characters against a browser's
+   * 391.
+   *
+   * Supplying one from a real browser restores detail lookups, and it is
+   * reusable — the same value works spliced into freshly minted cookies. Read
+   * it out of `document.cookie` on any AliExpress page: the `epssw` key inside
+   * the JSON of `_baxia_sec_cookie_`. {@link epsswFrom} does the extraction.
+   */
+  epssw?: string;
+  /**
    * Accept a cookie that is missing some fields. Defaults to false.
    *
    * Only useful for diagnosis: partial values are rejected by the gateway.
    */
   allowPartial?: boolean;
+}
+
+/**
+ * Pull the `epssw` field out of a `_baxia_sec_cookie_` value or a whole cookie
+ * header, so a caller can paste either.
+ *
+ * @throws {Error} if no `epssw` can be found.
+ */
+export function epsswFrom(cookieOrValue: string): string {
+  const value = cookieOrValue.match(/_baxia_sec_cookie_=([^;]*)/)?.[1] ?? cookieOrValue;
+  const decoded = decodeCookieValue(value.trim());
+  if (decoded === null) throw new Error("Not a _baxia_sec_cookie_ value: it never decodes to JSON");
+  const epssw = (JSON.parse(decoded) as Record<string, unknown>).epssw;
+  if (typeof epssw !== "string" || epssw.length === 0) {
+    throw new Error("That cookie carries no epssw field");
+  }
+  return epssw;
+}
+
+/** Replace the `epssw` field inside a cookie header, leaving the rest alone. */
+export function spliceEpssw(cookie: string, epssw: string): string {
+  return cookie.replace(/_baxia_sec_cookie_=([^;]*)/, (whole, value: string) => {
+    const decoded = decodeCookieValue(value);
+    if (decoded === null) return whole;
+    const fields = { ...JSON.parse(decoded) as Record<string, unknown>, epssw };
+    return `_baxia_sec_cookie_=${encodeURIComponent(JSON.stringify(fields))}`;
+  });
+}
+
+/**
+ * Peel percent-encoding until the value is the JSON object it describes.
+ *
+ * JSDOM's cookie store re-encodes on read, so a value the page wrote once
+ * encoded comes back encoded twice: `%257B%2522lwrid…` where a browser sends
+ * `%7B%22lwrid…`. AliExpress decodes exactly once, so the doubled form arrives
+ * as `%7B%22lwrid…` — not JSON — and the request is refused. Left unfixed this
+ * is silent: the field names are still findable after one decode, so the cookie
+ * looks complete right up until the gateway rejects it.
+ *
+ * Returns `null` when the value never resolves to a JSON object.
+ */
+function decodeCookieValue(value: string): string | null {
+  let current = value;
+  for (let depth = 0; depth < 4; depth++) {
+    if (current.startsWith("{")) return current;
+    try {
+      const next = decodeURIComponent(current);
+      if (next === current) return null;
+      current = next;
+    } catch {
+      return null;
+    }
+  }
+  return null;
 }
 
 /**
@@ -109,13 +190,23 @@ export interface MintOptions {
 export function fieldsIn(cookie: string): string[] {
   const value = cookie.match(/_baxia_sec_cookie_=([^;]*)/)?.[1];
   if (!value) return [];
-  let decoded: string;
-  try {
-    decoded = decodeURIComponent(value);
-  } catch {
-    decoded = value;
-  }
+  const decoded = decodeCookieValue(value);
+  // A value that will not resolve to JSON is broken however many field names it
+  // happens to contain, so report nothing rather than a misleading count.
+  if (decoded === null) return [];
   return REQUIRED_FIELDS.filter((field) => decoded.includes(field));
+}
+
+/**
+ * Rewrite the anti-bot cookie into the single-encoded form a browser sends.
+ *
+ * Everything else in the header is passed through untouched.
+ */
+export function normalizeCookieHeader(cookie: string): string {
+  return cookie.replace(/_baxia_sec_cookie_=([^;]*)/, (whole, value: string) => {
+    const decoded = decodeCookieValue(value);
+    return decoded === null ? whole : `_baxia_sec_cookie_=${encodeURIComponent(decoded)}`;
+  });
 }
 
 /**
@@ -130,9 +221,14 @@ export function fieldsIn(cookie: string): string[] {
  * Reference counted, because concurrent mints must not disarm each other, and
  * held for a grace period afterwards: the stray rejections arrive *after*
  * teardown, which is exactly when a naive implementation has already stopped
- * listening. The window is deliberately generous — the alternative is a crash —
- * but it does mean a caller's own unhandled rejection would be swallowed too if
- * it happened to land inside it.
+ * listening.
+ *
+ * Deliberately narrow. An earlier version also absorbed `error`, which swallowed
+ * a caller's own uncaught exception and left a script exiting silently with no
+ * output at all — far worse than the crash it was guarding against. Only
+ * unhandled rejections are caught now, which is the failure mode actually
+ * observed from these pages. A caller's own rejection landing inside the window
+ * would still be absorbed; that is the residual cost of not crashing.
  */
 const SHIELD_GRACE_MS = 5_000;
 let shieldDepth = 0;
@@ -148,7 +244,6 @@ function raiseShield(): { lower(): void } {
   }
   if (shieldDepth === 0) {
     globalThis.addEventListener("unhandledrejection", absorbFailure);
-    globalThis.addEventListener("error", absorbFailure);
   }
   shieldDepth++;
 
@@ -163,7 +258,6 @@ function raiseShield(): { lower(): void } {
         shieldTimer = undefined;
         if (shieldDepth > 0) return;
         globalThis.removeEventListener("unhandledrejection", absorbFailure);
-        globalThis.removeEventListener("error", absorbFailure);
       }, SHIELD_GRACE_MS);
       // Do not hold the process open just to keep watch.
       if (typeof shieldTimer === "number") Deno.unrefTimer(shieldTimer);
@@ -229,10 +323,13 @@ export async function mintSessionCookie(options: MintOptions = {}): Promise<stri
         best = cookie;
         bestFields = fields;
       }
-      if (fields.length === REQUIRED_FIELDS.length) return cookie;
+      if (fields.length === REQUIRED_FIELDS.length) {
+        const normalized = normalizeCookieHeader(cookie);
+        return options.epssw ? spliceEpssw(normalized, options.epssw) : normalized;
+      }
     }
 
-    if (options.allowPartial && best) return best;
+    if (options.allowPartial && best) return normalizeCookieHeader(best);
 
     const missing = REQUIRED_FIELDS.filter((field) => !bestFields.includes(field));
     throw new Error(
