@@ -61,6 +61,7 @@ export type {
   SearchAllOptions,
   SearchOptions,
   SearchResult,
+  Shipping,
   SkuVariant,
   SortKey,
   SortOption,

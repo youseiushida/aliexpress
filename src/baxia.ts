@@ -119,6 +119,59 @@ export function fieldsIn(cookie: string): string[] {
 }
 
 /**
+ * Absorbs failures escaping from the page while a mint is in flight.
+ *
+ * The scripts we run are somebody else's, and they leave requests outstanding —
+ * one seen rejecting with `mtop.ae.cookie.render` long after the DOM was torn
+ * down. An unhandled rejection ends the host process, which is an unacceptable
+ * way for an optional recovery path to fail, so the whole class is swallowed
+ * while we are responsible for that page.
+ *
+ * Reference counted, because concurrent mints must not disarm each other, and
+ * held for a grace period afterwards: the stray rejections arrive *after*
+ * teardown, which is exactly when a naive implementation has already stopped
+ * listening. The window is deliberately generous — the alternative is a crash —
+ * but it does mean a caller's own unhandled rejection would be swallowed too if
+ * it happened to land inside it.
+ */
+const SHIELD_GRACE_MS = 5_000;
+let shieldDepth = 0;
+// `@types/node` rides in with jsdom, so the timer handle is not plainly a number.
+let shieldTimer: ReturnType<typeof setTimeout> | undefined;
+
+const absorbFailure = (event: Event) => event.preventDefault();
+
+function raiseShield(): { lower(): void } {
+  if (shieldTimer !== undefined) {
+    clearTimeout(shieldTimer);
+    shieldTimer = undefined;
+  }
+  if (shieldDepth === 0) {
+    globalThis.addEventListener("unhandledrejection", absorbFailure);
+    globalThis.addEventListener("error", absorbFailure);
+  }
+  shieldDepth++;
+
+  let lowered = false;
+  return {
+    lower() {
+      if (lowered) return;
+      lowered = true;
+      shieldDepth--;
+      if (shieldDepth > 0) return;
+      shieldTimer = setTimeout(() => {
+        shieldTimer = undefined;
+        if (shieldDepth > 0) return;
+        globalThis.removeEventListener("unhandledrejection", absorbFailure);
+        globalThis.removeEventListener("error", absorbFailure);
+      }, SHIELD_GRACE_MS);
+      // Do not hold the process open just to keep watch.
+      if (typeof shieldTimer === "number") Deno.unrefTimer(shieldTimer);
+    },
+  };
+}
+
+/**
  * Run AliExpress' anti-bot scripts and return the cookie header they produce.
  *
  * The returned string is a full `cookie` header and is what
@@ -161,13 +214,7 @@ export async function mintSessionCookie(options: MintOptions = {}): Promise<stri
   );
   const win = dom.window as unknown as MintedWindow;
 
-  // These pages leave promises in flight, and one rejecting after teardown would
-  // take the host process down with it — an unacceptable way for an optional
-  // recovery path to fail. Rejections are absorbed only for the span of the
-  // mint, which is short and runs nothing of the caller's.
-  const absorb = (event: Event) => event.preventDefault();
-  globalThis.addEventListener("unhandledrejection", absorb);
-  globalThis.addEventListener("error", absorb);
+  const shield = raiseShield();
 
   try {
     const deadline = Date.now() + timeoutMs;
@@ -202,10 +249,6 @@ export async function mintSessionCookie(options: MintOptions = {}): Promise<stri
     try {
       win.close();
     } catch { /* already torn down */ }
-    // Scripts still in flight can run against the closed document; give them a
-    // moment to fail while we are still absorbing.
-    await new Promise((resolve) => setTimeout(resolve, 250));
-    globalThis.removeEventListener("unhandledrejection", absorb);
-    globalThis.removeEventListener("error", absorb);
+    shield.lower();
   }
 }

@@ -1,4 +1,4 @@
-import type { Money, Price, ProductDetail, SkuVariant, StoreRef } from "../types.ts";
+import type { Money, Price, ProductDetail, Shipping, SkuVariant, StoreRef } from "../types.ts";
 import { AliSchemaError } from "../errors.ts";
 import { absUrl, money, num, parseFuzzyCount, pick, price, productUrl, str } from "./common.ts";
 
@@ -21,6 +21,7 @@ const MODULES = {
   props: "PRODUCT_PROP_PC",
   sku: "SKU",
   quantity: "QUANTITY_PC",
+  shipping: "SHIPPING",
 } as const;
 
 /**
@@ -128,6 +129,22 @@ function normalizeSkus(
       image ??= value[1];
     }
 
+    // Some listings ship `skuPaths` without a matching `skuProperties` table, and
+    // the join above then yields variants priced but unlabelled — seen live on a
+    // four-variant board. `skuAttr` carries the same choice as
+    // `"14:691#USB3.0"`, so the display half after each `#` recovers the label
+    // even when the lookup table is missing. Named by position, since the
+    // property's own name is exactly what was unavailable.
+    if (Object.keys(attributes).length === 0) {
+      const parts = (str(pick(path, "skuAttr")) ?? "")
+        .split(";")
+        .map((part) => part.split("#")[1]?.trim())
+        .filter((label): label is string => Boolean(label));
+      parts.forEach((label, index) => {
+        attributes[parts.length === 1 ? "option" : `option${index + 1}`] = label;
+      });
+    }
+
     return [{
       id,
       attributes,
@@ -137,6 +154,67 @@ function normalizeSkus(
       available: pick(path, "salable") !== false,
     }];
   });
+}
+
+/**
+ * Read the delivery quote.
+ *
+ * Two traps live in this payload, both of which produce plausible-looking
+ * nonsense if taken at face value.
+ *
+ * `currency` is the internal settlement currency — `"CNY"` even on a Japanese
+ * listing quoting `"300円"`. The amount the buyer sees pairs with
+ * `displayCurrency`, so that is the one used here.
+ *
+ * And `shippingFee: "charge"` does not mean the buyer is charged. AliExpress
+ * decides the "free shipping" label with `shippingFee=free||thresholdOverZero!=yes`
+ * — a condition carried verbatim in the response's own layout rules — so a
+ * charge with a zero threshold still ships free. Reporting the raw
+ * `displayAmount` would invent a cost the site never shows.
+ *
+ * Only the free branch has been confirmed against a live listing; the charged
+ * branch follows AliExpress' own rule but has not been observed yet.
+ */
+function normalizeShipping(
+  result: Record<string, unknown>,
+  fallbackCurrency: string,
+): Shipping | null {
+  const module = result[MODULES.shipping];
+  const options = pick(module, "deliveryLayoutInfo") ?? pick(module, "originalLayoutResultList");
+  if (!Array.isArray(options) || options.length === 0) return null;
+
+  // Prefer the option the page has selected; fall back to the first offered.
+  const selected = str(pick(module, "selectedDeliveryOptionCode"));
+  const option =
+    options.find((entry) =>
+      selected !== null && str(pick(entry, "bizData.deliveryOptionCode")) === selected
+    ) ?? options[0];
+
+  const data = pick(option, "bizData");
+  if (!data) return null;
+
+  const free = str(pick(data, "shippingFee")) === "free" ||
+    str(pick(data, "thresholdOverZero")) !== "yes";
+  const amount = num(pick(data, "displayAmount"));
+  const currency = str(pick(data, "displayCurrency")) ?? fallbackCurrency;
+
+  return {
+    free,
+    cost: free || amount === null ? null : {
+      value: amount,
+      currency,
+      formatted: str(pick(data, "formattedAmount")) ?? `${amount} ${currency}`,
+    },
+    daysMin: num(pick(data, "deliveryDayMin")),
+    daysMax: num(pick(data, "deliveryDayMax")),
+    etaFrom: str(pick(data, "displayEtaMinDate")),
+    etaTo: str(pick(data, "displayEtaMaxDate")) ?? str(pick(data, "deliveryDate")),
+    provider: str(pick(data, "company")) ?? str(pick(data, "deliveryProviderName")),
+    shipsFrom: str(pick(data, "shipFrom")),
+    shipsTo: str(pick(data, "shipTo")),
+    tracked: str(pick(data, "tracking")) === "visible",
+    raw: module,
+  };
 }
 
 function normalizeImages(result: Record<string, unknown>): string[] {
@@ -195,6 +273,7 @@ export function normalizeProductDetail(
     attributes: normalizeAttributes(modules),
     skus: normalizeSkus(modules, currency),
     stock: num(pick(modules[MODULES.quantity], "totalAvailableInventory")),
+    shipping: normalizeShipping(modules, currency),
     raw,
   };
 }

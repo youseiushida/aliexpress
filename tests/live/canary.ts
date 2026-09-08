@@ -66,6 +66,13 @@ const DETAIL_COVERAGE = {
   "store.name": 1,
   attributes: 1,
   skus: 1,
+  // Delivery terms decide the real cost on cheap items, so losing them silently
+  // would be as damaging as losing the price. `cost` is absent on free shipping,
+  // which is why the flag rather than the amount is what must always be there.
+  "shipping.daysMin": 1,
+  "shipping.daysMax": 1,
+  "shipping.provider": 1,
+  "shipping.shipsTo": 1,
 } as const;
 
 /** A second locale, to prove the locale/currency switch is not cosmetic. */

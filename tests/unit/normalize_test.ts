@@ -16,6 +16,17 @@ import { assertCoverage, formatCoverage } from "../support/coverage.ts";
 
 const HOST = "ja.aliexpress.com";
 
+/** Reach into a fixture by dotted path, for asserting on the raw shape. */
+function pickPath(source: unknown, path: string): unknown {
+  return path.split(".").reduce<unknown>(
+    (
+      node,
+      key,
+    ) => (node && typeof node === "object" ? (node as Record<string, unknown>)[key] : undefined),
+    source,
+  );
+}
+
 const searchFixture = JSON.parse(
   await Deno.readTextFile(new URL("../fixtures/search.ja.json", import.meta.url)),
 );
@@ -136,6 +147,63 @@ Deno.test("normalizeProductDetail maps the detail modules", () => {
   console.log(formatCoverage(report));
 });
 
+Deno.test("normalizeProductDetail reads the delivery quote", () => {
+  const { shipping } = normalizeProductDetail(productFixture.data, "1", HOST, "JPY");
+  assert(shipping, "the fixture carries a SHIPPING module");
+  assertEquals(shipping.daysMin, 4);
+  assertEquals(shipping.daysMax, 16);
+  assertEquals(shipping.shipsFrom, "China");
+  assertEquals(shipping.shipsTo, "Japan");
+  assertEquals(shipping.tracked, true);
+  assert(shipping.provider);
+  assert(shipping.etaFrom);
+  assert(shipping.etaTo);
+});
+
+Deno.test("shipping is free when the threshold is zero, despite shippingFee=charge", () => {
+  // The captured listing says `shippingFee: "charge"` with `displayAmount: 300`,
+  // yet AliExpress renders 送料無料 — its own rule is
+  // `shippingFee=free||thresholdOverZero!=yes`, and the threshold here is "no".
+  // Trusting displayAmount would invent a 300 JPY cost the buyer never pays.
+  const data = productFixture.data;
+  assertEquals(
+    pickPath(data, "result.SHIPPING.deliveryLayoutInfo.0.bizData.shippingFee"),
+    "charge",
+  );
+  assertEquals(pickPath(data, "result.SHIPPING.deliveryLayoutInfo.0.bizData.displayAmount"), 300);
+
+  const { shipping } = normalizeProductDetail(data, "1", HOST, "JPY");
+  assertEquals(shipping?.free, true);
+  assertEquals(shipping?.cost, null);
+});
+
+Deno.test("a charged quote is priced in the display currency, not the settlement one", () => {
+  // `currency` is "CNY" even on this JPY listing; only `displayCurrency` matches
+  // what the buyer is quoted, so reading the wrong one turns 300 yen into 300 yuan.
+  const charged = structuredClone(productFixture.data);
+  const bizData = pickPath(
+    charged,
+    "result.SHIPPING.deliveryLayoutInfo.0.bizData",
+  ) as Record<string, unknown>;
+  bizData.thresholdOverZero = "yes";
+
+  const { shipping } = normalizeProductDetail(charged, "1", HOST, "JPY");
+  assertEquals(shipping?.free, false);
+  assertEquals(shipping?.cost?.value, 300);
+  assertEquals(shipping?.cost?.currency, "JPY");
+  assertEquals(shipping?.cost?.formatted, "300円");
+});
+
+Deno.test("a listing with no SHIPPING module yields null rather than throwing", () => {
+  const detail = normalizeProductDetail(
+    { result: { PRODUCT_TITLE: { text: "x" } } },
+    "1",
+    HOST,
+    "JPY",
+  );
+  assertEquals(detail.shipping, null);
+});
+
 Deno.test("normalizeProductDetail resolves SKU attributes to readable labels", () => {
   const detail = normalizeProductDetail(productFixture.data, "1005008812285251", HOST, "JPY");
   const sku = detail.skus[0];
@@ -150,6 +218,40 @@ Deno.test("normalizeProductDetail resolves SKU attributes to readable labels", (
   }
   assertGreater(sku.price?.current.value ?? 0, 0);
   assertEquals(sku.available, true);
+});
+
+Deno.test("SKU labels fall back to skuAttr when the property table is missing", () => {
+  // Seen live: a four-variant listing returned prices and stock per SKU but no
+  // attribute names at all, leaving a caller unable to tell the variants apart.
+  const detail = normalizeProductDetail(
+    {
+      result: {
+        PRODUCT_TITLE: { text: "x" },
+        SKU: {
+          // No `skuProperties`, so the id-to-label join has nothing to resolve.
+          skuPaths: [
+            { skuIdStr: "111", path: "14:691", skuAttr: "14:691#USB3.0", salable: true },
+            { skuIdStr: "222", path: "14:692", skuAttr: "14:692#USB-C", salable: true },
+          ],
+        },
+      },
+    },
+    "1",
+    HOST,
+    "JPY",
+  );
+
+  assertEquals(detail.skus.map((sku) => sku.attributes), [
+    { option: "USB3.0" },
+    { option: "USB-C" },
+  ]);
+});
+
+Deno.test("the property table still wins when it is present", () => {
+  // The fallback must not shadow real labels: the fixture resolves through
+  // skuProperties and should keep its own naming.
+  const detail = normalizeProductDetail(productFixture.data, "1", HOST, "JPY");
+  assertEquals(Object.keys(detail.skus[0].attributes), ["カラー"]);
 });
 
 Deno.test("normalizeProductDetail rejects a payload with no title module", () => {

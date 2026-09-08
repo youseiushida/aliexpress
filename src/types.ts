@@ -60,6 +60,36 @@ export interface Product {
   readonly raw: unknown;
 }
 
+/**
+ * Delivery terms for the active shipping option.
+ *
+ * The price on a listing is only half of what a buyer pays, and on cheap
+ * hardware the freight is routinely the larger half — so this is part of the
+ * answer to "what does it cost", not a detail.
+ */
+export interface Shipping {
+  /** Whether the buyer pays nothing for delivery. */
+  free: boolean;
+  /** What delivery costs. `null` when {@link free}. */
+  cost: Money | null;
+  /** Fastest quoted transit in days. */
+  daysMin: number | null;
+  /** Slowest quoted transit in days. */
+  daysMax: number | null;
+  /** Localized arrival window as AliExpress renders it, e.g. `"9月 12日"`. */
+  etaFrom: string | null;
+  etaTo: string | null;
+  /** Shipping option's name, e.g. `"AliExpress 標準配送"`. */
+  provider: string | null;
+  /** Origin country as shown, e.g. `"China"`. */
+  shipsFrom: string | null;
+  /** Destination the quote was calculated for, e.g. `"Japan"`. */
+  shipsTo: string | null;
+  /** Whether the option carries tracking. */
+  tracked: boolean;
+  readonly raw: unknown;
+}
+
 export interface SkuVariant {
   id: string;
   /** Property name to selected value, e.g. `{ "Color": "GRAY" }`. */
@@ -87,6 +117,8 @@ export interface ProductDetail {
   skus: SkuVariant[];
   /** Total inventory across SKUs, when exposed. */
   stock: number | null;
+  /** Delivery cost and timing for the requested destination. */
+  shipping: Shipping | null;
   readonly raw: unknown;
 }
 

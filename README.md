@@ -50,7 +50,29 @@ const detail = await ae.product("1005008812285251");
 console.log(detail.attributes); // { "Type": "Video capture card", ... }
 console.log(detail.skus); // [{ id, attributes, price, stock, available }]
 console.log(detail.stock, detail.store?.positiveRate);
+console.log(detail.shipping); // { free, cost, daysMin, daysMax, etaFrom, provider, ... }
 ```
+
+### Freight is part of the price
+
+On cheap hardware the delivery charge is routinely larger than the difference between two listings,
+so `shipping` sits alongside `price` rather than behind a flag:
+
+```ts
+const landed = (detail.price?.current.value ?? 0) + (detail.shipping?.cost?.value ?? 0);
+```
+
+Two things in this payload mislead if taken at face value, and the library corrects for both:
+
+- **`shippingFee: "charge"` does not mean the buyer is charged.** AliExpress decides its own "free
+  shipping" label with `shippingFee=free||thresholdOverZero!=yes`, so a charge against a zero
+  threshold still ships free. `shipping.free` follows that rule; reading the raw amount would invent
+  a cost the site never shows.
+- **`currency` is the settlement currency, not the quoted one** — `"CNY"` on a listing priced in
+  yen. `shipping.cost` uses `displayCurrency`, so 300 yen does not become 300 yuan.
+
+Only the free branch has been confirmed against a live listing so far; the charged branch follows
+AliExpress' own rule but has not been observed yet.
 
 ### Normalized, with an escape hatch
 

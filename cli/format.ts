@@ -32,6 +32,12 @@ export const DEFAULT_PRODUCT_FIELDS = [
   "orders",
   "stock",
   "store.name",
+  // Freight is part of the price on cheap hardware, so it belongs in the
+  // default view rather than behind an explicit --fields.
+  "shipping.free",
+  "shipping.cost.formatted",
+  "shipping.daysMin",
+  "shipping.daysMax",
   "url",
 ];
 
