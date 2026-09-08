@@ -1,0 +1,101 @@
+name: Canary
+
+# Is this library still working against the real AliExpress?
+#
+# The run has three outcomes and they are deliberately not treated alike:
+#
+#   0  everything works.
+#   3  AliExpress blocked everything, so nothing was exercised. GitHub's
+#      egress IPs are a plausible target for that, and it says nothing about
+#      our code, so the job reports a warning and passes. Filing an issue here
+#      would train everyone to ignore this workflow. A run where only some
+#      checks were refused still exits 0 and names them in the summary.
+#   4  the request succeeded but fields we depend on stopped arriving. That is
+#      real: the normalizer is silently returning nulls, and an issue is filed.
+
+on:
+  schedule:
+    # 03:00 UTC daily. Frequent enough to catch drift within a day, rare enough
+    # not to look like scraping.
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+    inputs:
+      query:
+        description: Search term to probe with
+        required: false
+        default: usb cable
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  canary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Probe AliExpress
+        id: probe
+        env:
+          AE_CANARY_QUERY: ${{ inputs.query || 'usb cable' }}
+        run: |
+          set +e
+          deno run --allow-net --allow-env --allow-write tests/live/canary.ts | tee report.md
+          code=${PIPESTATUS[0]}
+          set -e
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+
+      - name: Blocked, not broken
+        if: steps.probe.outputs.code == '3'
+        run: |
+          echo "::warning title=Canary blocked::AliExpress refused this runner. \
+          The library was not exercised, so nothing can be concluded about it."
+
+      - name: Report drift
+        if: steps.probe.outputs.code != '0' && steps.probe.outputs.code != '3'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="Canary: AliExpress response shape changed"
+
+          # One issue per outage. Re-filing daily would bury the original
+          # investigation under duplicates.
+          existing=$(gh issue list --state open --label canary --json number --jq '.[0].number')
+
+          {
+            echo "The live canary failed with exit code ${{ steps.probe.outputs.code }}."
+            echo
+            echo "Exit 4 means AliExpress answered but fields the normalizer depends on"
+            echo "were missing, so the library is returning nulls where it used to return"
+            echo "data. The coverage table below names which fields."
+            echo
+            cat report.md
+            echo
+            echo "[Workflow run]($RUN_URL)"
+          } > body.md
+
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file body.md
+          else
+            gh issue create --title "$title" --label canary --body-file body.md
+          fi
+
+      - name: Close a resolved drift issue
+        if: steps.probe.outputs.code == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          existing=$(gh issue list --state open --label canary --json number --jq '.[0].number')
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "Canary is passing again; closing."
+          fi
+
+      - name: Fail the job on drift
+        if: steps.probe.outputs.code != '0' && steps.probe.outputs.code != '3'
+        run: exit 1

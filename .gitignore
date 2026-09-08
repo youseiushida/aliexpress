@@ -9,3 +9,11 @@
 # https://docs.deno.com/runtime/reference/cli/coverage/
 coverage/
 *.lcov
+
+# Browser captures used to reverse-engineer the endpoints.
+# These hold live session cookies and personal account data, and run to tens of
+# megabytes. Keep them local; the tests use trimmed fixtures instead.
+.har/
+
+# npm packages materialised for the optional ./baxia entry point.
+node_modules/

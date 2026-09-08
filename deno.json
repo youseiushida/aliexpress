@@ -1,0 +1,44 @@
+{
+  "name": "@youseiushida/aliexpress",
+  "version": "0.1.0",
+  "license": "MIT",
+  "exports": {
+    ".": "./mod.ts",
+    "./cli": "./cli/main.ts",
+    "./baxia": "./src/baxia.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@^1.0.14",
+    "@std/cli": "jsr:@std/cli@^1.0.22",
+    "@std/crypto": "jsr:@std/crypto@^1.0.5",
+    "@std/encoding": "jsr:@std/encoding@^1.0.11",
+    "jsdom": "npm:jsdom@^25.0.1"
+  },
+  "tasks": {
+    "check": "deno fmt --check && deno lint && deno check mod.ts cli/main.ts tests/live/canary.ts",
+    "test": "deno test --allow-read tests/unit/",
+    "canary": "deno run --allow-net --allow-env --allow-write tests/live/canary.ts",
+    "cli": "deno run --allow-net --allow-env cli/main.ts"
+  },
+  "fmt": {
+    "lineWidth": 100,
+    "exclude": [
+      "tests/fixtures/"
+    ]
+  },
+  "publish": {
+    "include": [
+      "mod.ts",
+      "src/",
+      "cli/",
+      "README.md",
+      "LICENSE",
+      "deno.json"
+    ]
+  },
+  "lint": {
+    "exclude": [
+      "tests/fixtures/"
+    ]
+  }
+}

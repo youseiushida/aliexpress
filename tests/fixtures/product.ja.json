@@ -1,0 +1,2353 @@
+{
+  "api": "mtop.aliexpress.pdp.pc.query",
+  "data": {
+    "result": {
+      "POPUP": {
+        "popupMap": {},
+        "sortedPopup": []
+      },
+      "HEADER_IMAGE_PC": {
+        "currentSkuImages": [
+          "https://ae-pic-a1.aliexpress-media.com/kf/S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg"
+        ],
+        "imagePathList": [
+          "https://ae-pic-a1.aliexpress-media.com/kf/S955bf6f529be40f496d852d7bd8f30a0q.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/Seed366aba3324e56bc1c9ad4f78e38bdy.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/Sdaaa650b125b4938ac4454ecf3727fafM.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S24d7e61f470a4dbd91699bb914bc0f8fI.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S6965ae357d474748a688d747327769f7y.jpg?has_lang=1&ver=2"
+        ],
+        "imgList": [
+          "https://ae-pic-a1.aliexpress-media.com/kf/S955bf6f529be40f496d852d7bd8f30a0q.jpg_960x960.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/Seed366aba3324e56bc1c9ad4f78e38bdy.jpg_960x960.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/Sdaaa650b125b4938ac4454ecf3727fafM.jpg_960x960.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg_960x960.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S24d7e61f470a4dbd91699bb914bc0f8fI.jpg_960x960.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S6965ae357d474748a688d747327769f7y.jpg_960x960.jpg?has_lang=1&ver=2"
+        ],
+        "mainImages": [
+          {
+            "imageKey": "S955bf6f529be40f496d852d7bd8f30a0q.jpg",
+            "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S955bf6f529be40f496d852d7bd8f30a0q.jpg_960x960.jpg?has_lang=1&ver=2"
+          },
+          {
+            "imageKey": "Seed366aba3324e56bc1c9ad4f78e38bdy.jpg",
+            "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Seed366aba3324e56bc1c9ad4f78e38bdy.jpg_960x960.jpg?has_lang=1&ver=2"
+          },
+          {
+            "imageKey": "Sdaaa650b125b4938ac4454ecf3727fafM.jpg",
+            "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/Sdaaa650b125b4938ac4454ecf3727fafM.jpg_960x960.jpg?has_lang=1&ver=2"
+          },
+          {
+            "imageKey": "S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg",
+            "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg_960x960.jpg?has_lang=1&ver=2"
+          },
+          {
+            "imageKey": "S24d7e61f470a4dbd91699bb914bc0f8fI.jpg",
+            "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S24d7e61f470a4dbd91699bb914bc0f8fI.jpg_960x960.jpg?has_lang=1&ver=2"
+          },
+          {
+            "imageKey": "S6965ae357d474748a688d747327769f7y.jpg",
+            "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S6965ae357d474748a688d747327769f7y.jpg_960x960.jpg?has_lang=1&ver=2"
+          }
+        ],
+        "pageBarShiftLeft": false,
+        "showColorTab": false,
+        "showLongImage": false,
+        "skuImagesMap": {
+          "12000046769980162": [
+            "https://ae-pic-a1.aliexpress-media.com/kf/S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg"
+          ]
+        },
+        "summImagePathList": [
+          "https://ae-pic-a1.aliexpress-media.com/kf/S955bf6f529be40f496d852d7bd8f30a0q.jpg_80x80.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/Seed366aba3324e56bc1c9ad4f78e38bdy.jpg_80x80.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/Sdaaa650b125b4938ac4454ecf3727fafM.jpg_80x80.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg_80x80.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S24d7e61f470a4dbd91699bb914bc0f8fI.jpg_80x80.jpg?has_lang=1&ver=2",
+          "https://ae-pic-a1.aliexpress-media.com/kf/S6965ae357d474748a688d747327769f7y.jpg_80x80.jpg?has_lang=1&ver=2"
+        ]
+      },
+      "PC_RATING": {
+        "aiSell": {},
+        "otherText": "1,000+ 点販売",
+        "rating": "4.6",
+        "separator": "౹",
+        "totalValidNum": 202
+      },
+      "QUANTITY_PC": {
+        "allSkuQuantityView": {
+          "12000046769980162": {
+            "currentCount": 1,
+            "hintText": "お一人様1点限り",
+            "maxBuyCount": 1
+          }
+        },
+        "currentSkuQuantityView": {
+          "currentCount": 1,
+          "hintText": "お一人様1点限り",
+          "maxBuyCount": 1
+        },
+        "title": "数量",
+        "totalAvailableInventory": 11
+      },
+      "MIDDLE_BANNER": {
+        "atmosphereCode": "new_user_platform_allowance_atm",
+        "atmosphereCodeMap": {},
+        "bannerType": "daily",
+        "skuBannerMap": {
+          "12000046769980162": {
+            "activityStatus": 1,
+            "atmosphereCode": "new_user_platform_allowance_atm",
+            "background": {
+              "type": "icon",
+              "value": "https://ae-pic-a1.aliexpress-media.com/kf/S0f1abcfa0e6e4ea49a61fa4196729e741/750x72.png"
+            },
+            "endTimer": {},
+            "saleText": {
+              "type": "icon",
+              "value": "イベント"
+            },
+            "slogan": {
+              "type": "icon",
+              "value": "https://img.alicdn.com/imgextra/i1/O1CN01N7h6dC20G4RjzaDDp_!!6000000006821-2-tps-256-32.png"
+            }
+          }
+        },
+        "targetSkuBanner": {
+          "activityStatus": 1,
+          "atmosphereCode": "new_user_platform_allowance_atm",
+          "background": {
+            "type": "icon",
+            "value": "https://ae-pic-a1.aliexpress-media.com/kf/S0f1abcfa0e6e4ea49a61fa4196729e741/750x72.png"
+          },
+          "endTimer": {},
+          "saleText": {
+            "type": "icon",
+            "value": "イベント"
+          },
+          "slogan": {
+            "type": "icon",
+            "value": "https://img.alicdn.com/imgextra/i1/O1CN01N7h6dC20G4RjzaDDp_!!6000000006821-2-tps-256-32.png"
+          }
+        }
+      },
+      "PRICE_EXTEND": {
+        "seperator": "; "
+      },
+      "SHIPPING": {
+        "bgColor": "#FFFFFF",
+        "deliveryExt": "[{\"d0\":\"9.70\",\"d1\":\"CNY\",\"itemScene\":\"newGlobal\",\"p0\":\"12000046769980162\",\"p1\":\"8.73\",\"p10\":[86914,2073370,290957,2022549,2066580,2066579,299658,648839,306962,1976581,236830,2069950,2066621,1097911,2066616,2067256,2066615,2066614,2067254,2066613,2067253,2067381,2066612,2067380,2066611,2066610,2066609,2066608,2068656,2066607,2066606,2006319,2034478,2066605,2066604,2070188,2066603,2066602,1966891,2068650,2020390,339135,1961383,2073380,2049956,2066783,2066782,526666,382153,526940,2065739,381904,2019016,2073417,2000201,2073416,1998022,1994695,1998021,2069953,2066813,56804,86884,1098872,2067447,2067443,2067826,242413,2067824,1517927,1997551,1961321,273138,111478,2066791,2072806],\"p16\":true,\"p18\":\"krNew\",\"p24\":\"{\\\"scenario\\\":\\\"pcMainScreen\\\"}\",\"p3\":\"CNY\",\"p4\":\"400000010210032\",\"p5\":\"50008276002\",\"p6\":\"null\",\"p7\":\"{\\\"scItemId\\\":\\\"909835510912\\\"}\",\"p9\":\"CN￥ 8.73\"}]",
+        "deliveryLayoutInfo": [
+          {
+            "additionLayout": [
+              {
+                "blockGroup": "others-0",
+                "blockType": "others",
+                "componentId": "124575",
+                "content": "追跡機能を利用可能",
+                "displayCondition": "tracking=visible",
+                "distance": 1,
+                "medusaKey": "tracking_available@others",
+                "order": 4,
+                "type": "textWithMark",
+                "useInDeliveryOptionPanel": true,
+                "useInDetailFirstScreen": false,
+                "useInSkuSwitch": false
+              }
+            ],
+            "bizData": {
+              "patternId": 2632001,
+              "logisticsComposeThreshold": "0円",
+              "discount": 0,
+              "tracking": "visible",
+              "workDayOneFourBeforeCutTime": "no",
+              "gtpProvider": "ALGORITHM",
+              "delayCompensationTime": "0",
+              "displayTomorrow": "no",
+              "itemScene": "newGlobal",
+              "shipToCode": "JP",
+              "thresholdOverZero": "no",
+              "delayCompensationOriginalCurrency": "JPY",
+              "delayCompensationOriginalAmount": "150",
+              "shipFrom": "China",
+              "deliveryDayMax": 16,
+              "displayEtaMinDate": "9月 12日",
+              "guaranteedDeliveryTime": 60,
+              "etaVersionDisplayType": "deliveryDateInterval",
+              "meetLogisticsComposeThreshold": "yes",
+              "freightCommitDay": "75",
+              "etaTraceId": "4#16#ALGORITHM#1789224644802#1790261444802#CAINIAO_FULFILLMENT_STD#WHU300#CN#1788879044802#NON#ONE_STOP_SERVICE#NON#NON#JP#104#6ccfe072948ac0315b35903821072633_20260907#NON#",
+              "delayCompensationAmountDisplay": "150円",
+              "etaVersionStrategyId": 98,
+              "gtpEtaTraceId": "4#16#ALGORITHM#1789224644802#1790261444802#CAINIAO_FULFILLMENT_STD#WHU300#CN#1788879044802#NON#ONE_STOP_SERVICE#NON#NON#JP#104#6ccfe072948ac0315b35903821072633_20260907#NON#",
+              "workDayOneFiveBeforeCutTime": "no",
+              "delayCompensationType": "delivery",
+              "itemId": 1005008812285251,
+              "solutionBusinessType": "qtgSelectSingleX",
+              "etaVersionSceneId": 193,
+              "displayAmount": 300,
+              "shippingFee": "charge",
+              "displayEtaMaxDate": "9月 24日",
+              "deliveryDayMin": 4,
+              "delayCompensationMode": "passive",
+              "warehouseType": "own_warehouse",
+              "solutionId": 1544001,
+              "deliveryOptionCode": "CAINIAO_FULFILLMENT_STD",
+              "leadTimeSort": [
+                9999
+              ],
+              "deliveryProviderName": "AliExpress Selection Standard Shipping",
+              "useTimeType": "algorithm",
+              "subWarehouseType": "AE_China_Warehouse",
+              "utParams": "{\"algTimeSceneStrategyId\":\"1400077\",\"buyerId\":0,\"categoryId\":201610201,\"cmd\":false,\"crowdTypes\":\"{\\\"eta_sensitive_tag\\\":\\\"-730838169\\\",\\\"shipping_cost_sensitive\\\":\\\"-1315857875\\\"}\",\"currency\":\"JPY\",\"deliveryDate\":\"2026-09-24\",\"deliveryDateMin\":\"2026-09-12\",\"deliveryDayMax\":16,\"deliveryDayMin\":4,\"fAmount\":300.0,\"fCurrency\":\"JPY\",\"gtpEtaTraceId\":\"4#16#ALGORITHM#1789224644802#1790261444802#CAINIAO_FULFILLMENT_STD#WHU300#CN#1788879044802#NON#ONE_STOP_SERVICE#NON#NON#JP#104#6ccfe072948ac0315b35903821072633_20260907#NON#\",\"itemId\":1005008812285251,\"meetLogisticsComposeThreshold\":\"yes\",\"preOrder\":false,\"productId\":1005008812285251,\"provider\":\"operator\",\"serviceName\":\"CAINIAO_FULFILLMENT_STD\",\"shipFrom\":\"CN\",\"shipToCountry\":\"JP\",\"shippingFee\":\"300.0\",\"traceId\":\"0b08c0c217888790445991163e0dfa\",\"trackingAvailable\":true,\"warehouseCode\":\"WHU300\"}",
+              "warehouseCode": "WHU300",
+              "existEtaMinTime": "yes",
+              "dayOfWeek": "木曜日",
+              "provider": "operator",
+              "itemShipFromType": "same",
+              "identityType": "ONE_STOP_SERVICE",
+              "currency": "CNY",
+              "company": "AliExpress 標準配送",
+              "deliveryDate": "9月 24日",
+              "formattedAmount": "300円",
+              "passiveDelayCompensationDelayDisplay": "visible",
+              "choiceFreeShipping": "yes",
+              "quantity": 11,
+              "leadTimeType": "cn_select_wh_qtg",
+              "showMoreCount": "1",
+              "existEtaMaxTime": "yes",
+              "solutionBusinessXDays": 0,
+              "guaranteedDeliveryTimeProviderName": "decision_committed_time",
+              "showXDayDeliveryTips": "yes",
+              "shipFromCode": "CN",
+              "displayCurrency": "JPY",
+              "deliveryProviderCode": "CAINIAO_FULFILLMENT_STD",
+              "shipTo": "Japan"
+            },
+            "componentLayout": {
+              "content": [
+                {
+                  "days": "≦8 日",
+                  "percent": 0.7374,
+                  "percentText": "73.7%"
+                },
+                {
+                  "days": "9 日",
+                  "percent": 0.0819,
+                  "percentText": "8.1%"
+                },
+                {
+                  "days": "10 日",
+                  "percent": 0.0691,
+                  "percentText": "6.9%"
+                },
+                {
+                  "days": "16 日",
+                  "percent": 0.0835,
+                  "percentText": "8.3%"
+                },
+                {
+                  "days": ">16 日",
+                  "percent": 0.0281,
+                  "percentText": "2.8%"
+                }
+              ],
+              "style": {
+                "progressTintColor": "#191919",
+                "trackTintColor": "#F5F5F5"
+              },
+              "title": "55.5%のご注文到着は6日以下です",
+              "titleColor": "#8E90A1"
+            },
+            "contentLayout": [
+              [
+                {
+                  "blockGroup": "freight-1",
+                  "blockType": "freight",
+                  "componentId": "124538",
+                  "content": "<span style=\"color: #191919;\"><strong>配達: 9月12日-24日</strong></span>",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "eta_content_Local_Plus_2",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                }
+              ],
+              [
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124542",
+                  "content": "<span style=\"color: #666666;\">運送会社:</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse_Courier@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124543",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i4/O1CN01GXEw8e1x1TAxJ8AZR_!!6000000006383-2-tps-69-54.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_icon0@deliveryTime",
+                  "order": 2,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124544",
+                  "content": "<span style=\"color: #191919;\">ヤマト運輸</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_Text0@deliveryTime",
+                  "order": 3,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124545",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i1/O1CN01U8UQ9F1gnhPtnvXHy_!!6000000004187-2-tps-170-36.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_icon1@deliveryTime",
+                  "order": 4,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124546",
+                  "content": "<span style=\"color: #191919;\">佐川急便</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_Text1@deliveryTime",
+                  "order": 5,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124547",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i3/O1CN01IkFTK223h2p5ilC2L_!!6000000007286-2-tps-72-54.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse__CompanyLogo_CompanyName_icon2@deliveryTime",
+                  "order": 6,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124548",
+                  "content": "<span style=\"color: #191919;\">Japan Post</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse__CompanyLogo_CompanyName_Text2@deliveryTime",
+                  "order": 7,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124559",
+                  "content": "<span style=\"color: #191919;\"> など</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_ETC@deliveryTime",
+                  "order": 18,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                }
+              ]
+            ],
+            "deliveryOptionPanelDisplayList": [
+              "124577",
+              "124505",
+              "124513",
+              "124517",
+              "124506",
+              "124514",
+              "124518",
+              "124519",
+              "124520",
+              "124521",
+              "124522",
+              "124523",
+              "124534",
+              "124565",
+              "124538",
+              "124542",
+              "124543",
+              "124544",
+              "124545",
+              "124546",
+              "124547",
+              "124548",
+              "124559",
+              "124575"
+            ],
+            "detailFirstScreenDisplayList": [
+              "124565",
+              "124538",
+              "124542",
+              "124543",
+              "124544",
+              "124545",
+              "124546",
+              "124559"
+            ],
+            "finalPatternId": 2632001,
+            "skuSwitchDisplayList": [
+              "124565",
+              "124538",
+              "124542",
+              "124543",
+              "124544",
+              "124545",
+              "124546",
+              "124559"
+            ],
+            "tableContentLayout": [
+              [
+                {
+                  "blockGroup": "tableContent-0",
+                  "blockType": "tableContent",
+                  "componentId": "124506",
+                  "content": "<span style=\"color: #191919;\"><strong>送料無料</strong></span>",
+                  "displayCondition": "shippingFee=free||thresholdOverZero!=yes",
+                  "distance": 1,
+                  "medusaKey": "Global_Version_freeshipping@freightCost",
+                  "order": 2,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ],
+              [
+                {
+                  "blockGroup": "tableContent-1",
+                  "blockType": "tableContent",
+                  "componentId": "124514",
+                  "content": "<span style=\"color: #191919;\"><strong>9月12日-24日</strong></span>",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "eta_Table_Content@etaContent",
+                  "order": 2,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ],
+              [
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124518",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i4/O1CN01GXEw8e1x1TAxJ8AZR_!!6000000006383-2-tps-69-54.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_icon0@deliveryTime",
+                  "order": 2,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124519",
+                  "content": "<span style=\"color: #191919;\">ヤマト運輸</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_Text0@deliveryTime",
+                  "order": 3,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124520",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i1/O1CN01U8UQ9F1gnhPtnvXHy_!!6000000004187-2-tps-170-36.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_icon1@deliveryTime",
+                  "order": 4,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124521",
+                  "content": "<span style=\"color: #191919;\">佐川急便</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_Text1@deliveryTime",
+                  "order": 5,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124522",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i3/O1CN01IkFTK223h2p5ilC2L_!!6000000007286-2-tps-72-54.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse__CompanyLogo_CompanyName_icon2@deliveryTime",
+                  "order": 6,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124523",
+                  "content": "<span style=\"color: #191919;\">Japan Post</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse__CompanyLogo_CompanyName_Text2@deliveryTime",
+                  "order": 7,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124534",
+                  "content": "<span style=\"color: #191919;\"> など</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_ETC@deliveryTime",
+                  "order": 18,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ]
+            ],
+            "tableHeadLayout": [
+              [
+                {
+                  "blockGroup": "tableContent-0",
+                  "blockType": "tableContent",
+                  "componentId": "124505",
+                  "content": "<span style=\"color: #191919;\">費用</span>",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "PDP_Sheet_Format_Cost_ShippingFee_Title_Korean@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ],
+              [
+                {
+                  "blockGroup": "tableContent-1",
+                  "blockType": "tableContent",
+                  "componentId": "124513",
+                  "content": "配送時間",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "PDP_Sheet_Format_DelilveryTime_Title@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ],
+              [
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124517",
+                  "content": "<span style=\"color: #191919;\">配送会社</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "PDP_Sheet_Format_Adverse_Courier_Title@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ]
+            ],
+            "tableOthersLayout": [
+              [
+                {
+                  "blockGroup": "tableOthersLayout-2",
+                  "blockType": "tableOthersLayout",
+                  "componentId": "124503",
+                  "content": "追跡機能を利用可能",
+                  "displayCondition": "tracking=visible",
+                  "distance": 1,
+                  "medusaKey": "tracking_available@others",
+                  "order": 4,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": false,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ]
+            ],
+            "tableTitleLayout": [
+              [
+                {
+                  "blockGroup": "tableTitle-0",
+                  "blockType": "tableTitle",
+                  "componentId": "124577",
+                  "content": "<span style=\"color: #191919;\"><strong>AliExpress 標準配送</strong></span>",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "PDP_Sheet_Format_routecode_Title@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ]
+            ],
+            "titleLayout": [
+              [
+                {
+                  "blockGroup": "title-0",
+                  "blockType": "title",
+                  "componentId": "124565",
+                  "content": "<span style=\"color:#2ABD05;\"><strong>送料無料</strong></span>",
+                  "displayCondition": "shippingFee=free||thresholdOverZero!=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse_shippingfee_freeshipping_Strong@freightCost",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                }
+              ]
+            ]
+          }
+        ],
+        "hideDelivery": false,
+        "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Sda4e3004cce04df59c03b833a9e26165f/64x64.png",
+        "originalLayoutResultList": [
+          {
+            "additionLayout": [
+              {
+                "blockGroup": "others-0",
+                "blockType": "others",
+                "componentId": "124575",
+                "content": "追跡機能を利用可能",
+                "displayCondition": "tracking=visible",
+                "distance": 1,
+                "medusaKey": "tracking_available@others",
+                "order": 4,
+                "type": "textWithMark",
+                "useInDeliveryOptionPanel": true,
+                "useInDetailFirstScreen": false,
+                "useInSkuSwitch": false
+              }
+            ],
+            "bizData": {
+              "patternId": 2632001,
+              "logisticsComposeThreshold": "0円",
+              "discount": 0,
+              "tracking": "visible",
+              "workDayOneFourBeforeCutTime": "no",
+              "gtpProvider": "ALGORITHM",
+              "delayCompensationTime": "0",
+              "displayTomorrow": "no",
+              "itemScene": "newGlobal",
+              "shipToCode": "JP",
+              "thresholdOverZero": "no",
+              "delayCompensationOriginalCurrency": "JPY",
+              "delayCompensationOriginalAmount": "150",
+              "shipFrom": "China",
+              "deliveryDayMax": 16,
+              "displayEtaMinDate": "9月 12日",
+              "guaranteedDeliveryTime": 60,
+              "etaVersionDisplayType": "deliveryDateInterval",
+              "meetLogisticsComposeThreshold": "yes",
+              "freightCommitDay": "75",
+              "etaTraceId": "4#16#ALGORITHM#1789224644802#1790261444802#CAINIAO_FULFILLMENT_STD#WHU300#CN#1788879044802#NON#ONE_STOP_SERVICE#NON#NON#JP#104#6ccfe072948ac0315b35903821072633_20260907#NON#",
+              "delayCompensationAmountDisplay": "150円",
+              "etaVersionStrategyId": 98,
+              "gtpEtaTraceId": "4#16#ALGORITHM#1789224644802#1790261444802#CAINIAO_FULFILLMENT_STD#WHU300#CN#1788879044802#NON#ONE_STOP_SERVICE#NON#NON#JP#104#6ccfe072948ac0315b35903821072633_20260907#NON#",
+              "workDayOneFiveBeforeCutTime": "no",
+              "delayCompensationType": "delivery",
+              "itemId": 1005008812285251,
+              "solutionBusinessType": "qtgSelectSingleX",
+              "etaVersionSceneId": 193,
+              "displayAmount": 300,
+              "shippingFee": "charge",
+              "displayEtaMaxDate": "9月 24日",
+              "deliveryDayMin": 4,
+              "delayCompensationMode": "passive",
+              "warehouseType": "own_warehouse",
+              "solutionId": 1544001,
+              "deliveryOptionCode": "CAINIAO_FULFILLMENT_STD",
+              "leadTimeSort": [
+                9999
+              ],
+              "deliveryProviderName": "AliExpress Selection Standard Shipping",
+              "useTimeType": "algorithm",
+              "subWarehouseType": "AE_China_Warehouse",
+              "utParams": "{\"algTimeSceneStrategyId\":\"1400077\",\"buyerId\":0,\"categoryId\":201610201,\"cmd\":false,\"crowdTypes\":\"{\\\"eta_sensitive_tag\\\":\\\"-730838169\\\",\\\"shipping_cost_sensitive\\\":\\\"-1315857875\\\"}\",\"currency\":\"JPY\",\"deliveryDate\":\"2026-09-24\",\"deliveryDateMin\":\"2026-09-12\",\"deliveryDayMax\":16,\"deliveryDayMin\":4,\"fAmount\":300.0,\"fCurrency\":\"JPY\",\"gtpEtaTraceId\":\"4#16#ALGORITHM#1789224644802#1790261444802#CAINIAO_FULFILLMENT_STD#WHU300#CN#1788879044802#NON#ONE_STOP_SERVICE#NON#NON#JP#104#6ccfe072948ac0315b35903821072633_20260907#NON#\",\"itemId\":1005008812285251,\"meetLogisticsComposeThreshold\":\"yes\",\"preOrder\":false,\"productId\":1005008812285251,\"provider\":\"operator\",\"serviceName\":\"CAINIAO_FULFILLMENT_STD\",\"shipFrom\":\"CN\",\"shipToCountry\":\"JP\",\"shippingFee\":\"300.0\",\"traceId\":\"0b08c0c217888790445991163e0dfa\",\"trackingAvailable\":true,\"warehouseCode\":\"WHU300\"}",
+              "warehouseCode": "WHU300",
+              "existEtaMinTime": "yes",
+              "dayOfWeek": "木曜日",
+              "provider": "operator",
+              "itemShipFromType": "same",
+              "identityType": "ONE_STOP_SERVICE",
+              "currency": "CNY",
+              "company": "AliExpress 標準配送",
+              "deliveryDate": "9月 24日",
+              "formattedAmount": "300円",
+              "passiveDelayCompensationDelayDisplay": "visible",
+              "choiceFreeShipping": "yes",
+              "quantity": 11,
+              "leadTimeType": "cn_select_wh_qtg",
+              "showMoreCount": "1",
+              "existEtaMaxTime": "yes",
+              "solutionBusinessXDays": 0,
+              "guaranteedDeliveryTimeProviderName": "decision_committed_time",
+              "showXDayDeliveryTips": "yes",
+              "shipFromCode": "CN",
+              "displayCurrency": "JPY",
+              "deliveryProviderCode": "CAINIAO_FULFILLMENT_STD",
+              "shipTo": "Japan"
+            },
+            "componentLayout": {
+              "content": [
+                {
+                  "days": "≦8 日",
+                  "percent": 0.7374,
+                  "percentText": "73.7%"
+                },
+                {
+                  "days": "9 日",
+                  "percent": 0.0819,
+                  "percentText": "8.1%"
+                },
+                {
+                  "days": "10 日",
+                  "percent": 0.0691,
+                  "percentText": "6.9%"
+                },
+                {
+                  "days": "16 日",
+                  "percent": 0.0835,
+                  "percentText": "8.3%"
+                },
+                {
+                  "days": ">16 日",
+                  "percent": 0.0281,
+                  "percentText": "2.8%"
+                }
+              ],
+              "style": {
+                "progressTintColor": "#191919",
+                "trackTintColor": "#F5F5F5"
+              },
+              "title": "55.5%のご注文到着は6日以下です",
+              "titleColor": "#8E90A1"
+            },
+            "contentLayout": [
+              [
+                {
+                  "blockGroup": "freight-1",
+                  "blockType": "freight",
+                  "componentId": "124538",
+                  "content": "<span style=\"color: #191919;\"><strong>配達: 9月12日-24日</strong></span>",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "eta_content_Local_Plus_2",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                }
+              ],
+              [
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124542",
+                  "content": "<span style=\"color: #666666;\">運送会社:</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse_Courier@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124543",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i4/O1CN01GXEw8e1x1TAxJ8AZR_!!6000000006383-2-tps-69-54.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_icon0@deliveryTime",
+                  "order": 2,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124544",
+                  "content": "<span style=\"color: #191919;\">ヤマト運輸</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_Text0@deliveryTime",
+                  "order": 3,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124545",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i1/O1CN01U8UQ9F1gnhPtnvXHy_!!6000000004187-2-tps-170-36.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_icon1@deliveryTime",
+                  "order": 4,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124546",
+                  "content": "<span style=\"color: #191919;\">佐川急便</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_Text1@deliveryTime",
+                  "order": 5,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124547",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i3/O1CN01IkFTK223h2p5ilC2L_!!6000000007286-2-tps-72-54.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse__CompanyLogo_CompanyName_icon2@deliveryTime",
+                  "order": 6,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124548",
+                  "content": "<span style=\"color: #191919;\">Japan Post</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse__CompanyLogo_CompanyName_Text2@deliveryTime",
+                  "order": 7,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "freight-2",
+                  "blockType": "freight",
+                  "componentId": "124559",
+                  "content": "<span style=\"color: #191919;\"> など</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_ETC@deliveryTime",
+                  "order": 18,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                }
+              ]
+            ],
+            "deliveryOptionPanelDisplayList": [
+              "124577",
+              "124505",
+              "124513",
+              "124517",
+              "124506",
+              "124514",
+              "124518",
+              "124519",
+              "124520",
+              "124521",
+              "124522",
+              "124523",
+              "124534",
+              "124565",
+              "124538",
+              "124542",
+              "124543",
+              "124544",
+              "124545",
+              "124546",
+              "124547",
+              "124548",
+              "124559",
+              "124575"
+            ],
+            "detailFirstScreenDisplayList": [
+              "124565",
+              "124538",
+              "124542",
+              "124543",
+              "124544",
+              "124545",
+              "124546",
+              "124559"
+            ],
+            "finalPatternId": 2632001,
+            "skuSwitchDisplayList": [
+              "124565",
+              "124538",
+              "124542",
+              "124543",
+              "124544",
+              "124545",
+              "124546",
+              "124559"
+            ],
+            "tableContentLayout": [
+              [
+                {
+                  "blockGroup": "tableContent-0",
+                  "blockType": "tableContent",
+                  "componentId": "124506",
+                  "content": "<span style=\"color: #191919;\"><strong>送料無料</strong></span>",
+                  "displayCondition": "shippingFee=free||thresholdOverZero!=yes",
+                  "distance": 1,
+                  "medusaKey": "Global_Version_freeshipping@freightCost",
+                  "order": 2,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ],
+              [
+                {
+                  "blockGroup": "tableContent-1",
+                  "blockType": "tableContent",
+                  "componentId": "124514",
+                  "content": "<span style=\"color: #191919;\"><strong>9月12日-24日</strong></span>",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "eta_Table_Content@etaContent",
+                  "order": 2,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ],
+              [
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124518",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i4/O1CN01GXEw8e1x1TAxJ8AZR_!!6000000006383-2-tps-69-54.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_icon0@deliveryTime",
+                  "order": 2,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124519",
+                  "content": "<span style=\"color: #191919;\">ヤマト運輸</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_Text0@deliveryTime",
+                  "order": 3,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124520",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i1/O1CN01U8UQ9F1gnhPtnvXHy_!!6000000004187-2-tps-170-36.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_icon1@deliveryTime",
+                  "order": 4,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124521",
+                  "content": "<span style=\"color: #191919;\">佐川急便</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_CompanyLogo_CompanyName_Text1@deliveryTime",
+                  "order": 5,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124522",
+                  "content": "<img src=\"https://gw.alicdn.com/imgextra/i3/O1CN01IkFTK223h2p5ilC2L_!!6000000007286-2-tps-72-54.png\" height=\"18px\"> ",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse__CompanyLogo_CompanyName_icon2@deliveryTime",
+                  "order": 6,
+                  "type": "icon",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124523",
+                  "content": "<span style=\"color: #191919;\">Japan Post</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse__CompanyLogo_CompanyName_Text2@deliveryTime",
+                  "order": 7,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                },
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124534",
+                  "content": "<span style=\"color: #191919;\"> など</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "TimeAB_US_ETC@deliveryTime",
+                  "order": 18,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ]
+            ],
+            "tableHeadLayout": [
+              [
+                {
+                  "blockGroup": "tableContent-0",
+                  "blockType": "tableContent",
+                  "componentId": "124505",
+                  "content": "<span style=\"color: #191919;\">費用</span>",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "PDP_Sheet_Format_Cost_ShippingFee_Title_Korean@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ],
+              [
+                {
+                  "blockGroup": "tableContent-1",
+                  "blockType": "tableContent",
+                  "componentId": "124513",
+                  "content": "配送時間",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "PDP_Sheet_Format_DelilveryTime_Title@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ],
+              [
+                {
+                  "blockGroup": "tableContent-2",
+                  "blockType": "tableContent",
+                  "componentId": "124517",
+                  "content": "<span style=\"color: #191919;\">配送会社</span>",
+                  "displayCondition": "operationalShow=yes",
+                  "distance": 1,
+                  "medusaKey": "PDP_Sheet_Format_Adverse_Courier_Title@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ]
+            ],
+            "tableOthersLayout": [
+              [
+                {
+                  "blockGroup": "tableOthersLayout-2",
+                  "blockType": "tableOthersLayout",
+                  "componentId": "124503",
+                  "content": "追跡機能を利用可能",
+                  "displayCondition": "tracking=visible",
+                  "distance": 1,
+                  "medusaKey": "tracking_available@others",
+                  "order": 4,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": false,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ]
+            ],
+            "tableTitleLayout": [
+              [
+                {
+                  "blockGroup": "tableTitle-0",
+                  "blockType": "tableTitle",
+                  "componentId": "124577",
+                  "content": "<span style=\"color: #191919;\"><strong>AliExpress 標準配送</strong></span>",
+                  "displayCondition": "default=visible",
+                  "distance": 1,
+                  "medusaKey": "PDP_Sheet_Format_routecode_Title@deliveryTime",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": false,
+                  "useInSkuSwitch": false
+                }
+              ]
+            ],
+            "titleLayout": [
+              [
+                {
+                  "blockGroup": "title-0",
+                  "blockType": "title",
+                  "componentId": "124565",
+                  "content": "<span style=\"color:#2ABD05;\"><strong>送料無料</strong></span>",
+                  "displayCondition": "shippingFee=free||thresholdOverZero!=yes",
+                  "distance": 1,
+                  "medusaKey": "Korean_PDP_Adverse_shippingfee_freeshipping_Strong@freightCost",
+                  "order": 1,
+                  "type": "htmlText",
+                  "useInDeliveryOptionPanel": true,
+                  "useInDetailFirstScreen": true,
+                  "useInSkuSwitch": true
+                }
+              ]
+            ]
+          }
+        ],
+        "selectedDeliveryOptionCode": "CAINIAO_FULFILLMENT_STD",
+        "styleCode": "krNew",
+        "systemFeature": {
+          "hideShipFrom": true
+        },
+        "title": "送料無料"
+      },
+      "DESC": {
+        "descFoldThreshold": 8,
+        "instructionInfo": {
+          "action": "表示する",
+          "bgColor": "#F5F5F5",
+          "content": "ご利用ガイド",
+          "mediaType": "PDF",
+          "mediaUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S87ce4441d4ed49a18a3191cd47a98229S.pdf",
+          "title": "商品ガイドおよび文書"
+        },
+        "isLocalSeller": false,
+        "msiteDescUrl": "https://pdp.aliexpress-media.com/product/description/msite/v2/ja_JP/desc.htm?productId=1005008812285251&key=S40e66efa24c14e64830a9dbb1eea8cb4X.zip&token=28f303726ff753357c361f65013dbc45&sellerId=2683464005",
+        "nativeDescUrl": "https://pdp.aliexpress-media.com/product/description/stdmobile/v2/ja_JP/desc.json?productId=1005008812285251&key=Sfbc230fd6583449aa23e0d24e7991086Z.json&token=eca2c666bfa8013f52fcd0915f7df3d5&sellerId=2683464005",
+        "pcDescUrl": "https://pdp.aliexpress-media.com/product/description/pc/v2/ja_JP/desc.htm?productId=1005008812285251&key=S40e66efa24c14e64830a9dbb1eea8cb4X.zip&token=28f303726ff753357c361f65013dbc45&sellerId=2683464005",
+        "reportText": "report",
+        "sellingPointInfo": {
+          "limitCnt": 3,
+          "title": "ハイライト",
+          "viewLessText": "レスを見る",
+          "viewMoreText": "ビューより"
+        },
+        "storeId": 1103815087,
+        "title": "商品詳細",
+        "urlMatchList": [
+          "^(https?:\\/\\/)?([a-zA-Z0-9-]+\\.)*aliexpress\\.us(?:/.*)?$",
+          "^(https?:\\/\\/)?([a-zA-Z0-9-]+\\.)*aliexpress\\.com(?:/.*)?$",
+          "^(https?:\\/\\/)?([a-zA-Z0-9-]+\\.)*aliexpress-media\\.com(?:/.*)?$"
+        ]
+      },
+      "TRAFFIC_IDENTIFY": {
+        "targetTraffic": false
+      },
+      "LADDER_PRICE": {
+        "ladderPriceViewMap": {},
+        "priceLocalConfig": "{\"from\":{\"currencySymbol\":\"円\",\"currencySymbolPosition\":\"end\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"roundOffZero\":false,\"separatorStr\":\" - \",\"single\":{\"currencySymbol\":\"円\",\"currencySymbolPosition\":\"end\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"to\":{\"currencySymbol\":\"円\",\"currencySymbolPosition\":\"end\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"useful\":true,\"version\":\"v1\"}"
+      },
+      "AFTER_SALE_SERVICE_BLOCK": {
+        "icon": "https://ae-pic-a1.aliexpress-media.com/kf/S8599f98d6ced4ae7ba2ab68ed3077e3aU/64x64.png",
+        "params": {
+          "sceneType": "ONLY_CHOICE",
+          "promiseIds": "27",
+          "extParams": "{33:{\"amount\":\"150\",\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"33\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"mode\":\"passive\",\"contentShowType\":\"dynamic\",\"deliveryDays\":30,\"sceneType\":\"ONLY_CHOICE\",\"ruleVersion\":\"V4\",\"displayVersion\":\"fourPoint\",\"currency\":\"JPY\",\"moneyFormat\":\"150円\",\"status\":\"0\",\"sellerRegion\":\"CN\",\"shipTo\":\"JP\"},36:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"36\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},38:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"38\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},39:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"39\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},27:{\"freeReturnsDisplayDays\":\"withDays\",\"displayNode\":\"after_placed\",\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"27\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"displayDays\":90,\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"}}",
+          "scene": "popup"
+        },
+        "popupTitle": "90日以内返品無料",
+        "promiseId": 27,
+        "title": "90日以内返品無料",
+        "titleBold": false,
+        "titleColor": "#4BA80C"
+      },
+      "COMPLIANCE_PC": {
+        "complianceList": [
+          {
+            "content": "免責事項: このページの画像および製品情報はAIによって自動翻訳される場合があります。これらの翻訳は現状のまま提供され、便宜上のものです。不正確または一貫性のない内容が含まれる可能性があります。",
+            "popId": "translation",
+            "popText": "翻訳されたコンテンツやAI翻訳機能の正確性、信頼性、完全性については、一切保証されません。また、それに伴う責任も負いません。ご不明点や製品詳細の確認が必要な場合は、原文をご参照いただくか、カスタマーサービスにお問い合わせください。",
+            "popTitle": "Disclaimer",
+            "popUrl": "https://www.aliexpress.com/p/secondaryPage/app-pop.html?popText=%E7%BF%BB%E8%A8%B3%E3%81%95%E3%82%8C%E3%81%9F%E3%82%B3%E3%83%B3%E3%83%86%E3%83%B3%E3%83%84%E3%82%84AI%E7%BF%BB%E8%A8%B3%E6%A9%9F%E8%83%BD%E3%81%AE%E6%AD%A3%E7%A2%BA%E6%80%A7%E3%80%81%E4%BF%A1%E9%A0%BC%E6%80%A7%E3%80%81%E5%AE%8C%E5%85%A8%E6%80%A7%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AF%E3%80%81%E4%B8%80%E5%88%87%E4%BF%9D%E8%A8%BC%E3%81%95%E3%82%8C%E3%81%BE%E3%81%9B%E3%82%93%E3%80%82%E3%81%BE%E3%81%9F%E3%80%81%E3%81%9D%E3%82%8C%E3%81%AB%E4%BC%B4%E3%81%86%E8%B2%AC%E4%BB%BB%E3%82%82%E8%B2%A0%E3%81%84%E3%81%BE%E3%81%9B%E3%82%93%E3%80%82%E3%81%94%E4%B8%8D%E6%98%8E%E7%82%B9%E3%82%84%E8%A3%BD%E5%93%81%E8%A9%B3%E7%B4%B0%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%AA%E5%A0%B4%E5%90%88%E3%81%AF%E3%80%81%E5%8E%9F%E6%96%87%E3%82%92%E3%81%94%E5%8F%82%E7%85%A7%E3%81%84%E3%81%9F%E3%81%A0%E3%81%8F%E3%81%8B%E3%80%81%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%83%BC%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AB%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82",
+            "position": "2",
+            "showH5Popup": true,
+            "title": "Disclaimer"
+          }
+        ],
+        "listCount": 0,
+        "title": "コンプライアンスの声明"
+      },
+      "PRICE_BANNER": {
+        "atmosphereCode": "real_super_deals_atm",
+        "atmosphereCodeMap": {
+          "12000046769980162": "real_super_deals_atm"
+        },
+        "skuBannerMap": {
+          "12000046769980162": {
+            "atmosphereCode": "real_super_deals_atm",
+            "background": "https://ae-pic-a1.aliexpress-media.com/kf/S4da421b2fc3c481d94541107b7b643a0x.png",
+            "borderLineColor": "#BB5CFF",
+            "pricePromotionTextInfoList": [
+              {
+                "prefixBgType": "small",
+                "pricePromotionText": "<strong><span style=\"color: #FF263A;\">1,831円 お得</span></strong>",
+                "pricePromotionTextBackground": "#FFE9EB",
+                "pricePromotionTextPrefixBackground": "https://ae-pic-a1.aliexpress-media.com/kf/Sd1d20f0abdaa43b4adcbc7796744df3bP/14x28.png"
+              }
+            ],
+            "slogan": "https://ae-pic-a1.aliexpress-media.com/kf/Scfaf4d46f8b44718a073d6085fc278e3n.png",
+            "umpPromotionId": "5000000208089353"
+          }
+        },
+        "targetSkuBanner": {
+          "atmosphereCode": "real_super_deals_atm",
+          "background": "https://ae-pic-a1.aliexpress-media.com/kf/S4da421b2fc3c481d94541107b7b643a0x.png",
+          "borderLineColor": "#BB5CFF",
+          "pricePromotionTextInfoList": [
+            {
+              "prefixBgType": "small",
+              "pricePromotionText": "<strong><span style=\"color: #FF263A;\">1,831円 お得</span></strong>",
+              "pricePromotionTextBackground": "#FFE9EB",
+              "pricePromotionTextPrefixBackground": "https://ae-pic-a1.aliexpress-media.com/kf/Sd1d20f0abdaa43b4adcbc7796744df3bP/14x28.png"
+            }
+          ],
+          "slogan": "https://ae-pic-a1.aliexpress-media.com/kf/Scfaf4d46f8b44718a073d6085fc278e3n.png",
+          "umpPromotionId": "5000000208089353"
+        }
+      },
+      "PRODUCT_PROP_PC": {
+        "outerProps": [
+          {
+            "attrName": "懸念される化学物質",
+            "attrValue": "なし"
+          },
+          {
+            "attrName": "アプリケーション",
+            "attrValue": "携帯電話,PS4・3,xbox,SWITCH,PC（パソコン）,カメラ"
+          },
+          {
+            "attrName": "OUT",
+            "attrValue": "HDMI"
+          }
+        ],
+        "propGroups": [],
+        "sexy": false,
+        "showOnAbove": false,
+        "showPropGroups": false,
+        "showPropOuter": false,
+        "showedProps": [
+          {
+            "attrName": "懸念される化学物質",
+            "attrValue": "なし"
+          },
+          {
+            "attrName": "アプリケーション",
+            "attrValue": "携帯電話,PS4・3,xbox,SWITCH,PC（パソコン）,カメラ"
+          },
+          {
+            "attrName": "OUT",
+            "attrValue": "HDMI"
+          },
+          {
+            "attrName": "入力",
+            "attrValue": "USB"
+          },
+          {
+            "attrName": "タイプ",
+            "attrValue": "ビデオキャプチャカード"
+          },
+          {
+            "attrName": "起源",
+            "attrValue": "Cn (原点)"
+          }
+        ],
+        "showedPropsMap": {
+          "219": {
+            "attrName": "起源",
+            "attrValue": "Cn (原点)"
+          },
+          "351": {
+            "attrName": "タイプ",
+            "attrValue": "ビデオキャプチャカード"
+          },
+          "577": {
+            "attrName": "アプリケーション",
+            "attrValue": "携帯電話,PS4・3,xbox,SWITCH,PC（パソコン）,カメラ"
+          },
+          "272997926": {
+            "attrName": "OUT",
+            "attrValue": "HDMI"
+          },
+          "272999511": {
+            "attrName": "入力",
+            "attrValue": "USB"
+          },
+          "400000603": {
+            "attrName": "懸念される化学物質",
+            "attrValue": "なし"
+          }
+        }
+      },
+      "SUSTAINABILITY_SERVICE_BLOCK": {
+        "icon": "https://ae-pic-a1.aliexpress-media.com/kf/S2d6d0cd92fde4a97a3075002550252d6q/64x64.png",
+        "params": {
+          "sceneType": "ONLY_CHOICE",
+          "promiseIds": "38",
+          "extParams": "{33:{\"amount\":\"150\",\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"33\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"mode\":\"passive\",\"contentShowType\":\"dynamic\",\"deliveryDays\":30,\"sceneType\":\"ONLY_CHOICE\",\"ruleVersion\":\"V4\",\"displayVersion\":\"fourPoint\",\"currency\":\"JPY\",\"moneyFormat\":\"150円\",\"status\":\"0\",\"sellerRegion\":\"CN\",\"shipTo\":\"JP\"},36:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"36\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},38:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"38\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},39:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"39\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},27:{\"freeReturnsDisplayDays\":\"withDays\",\"displayNode\":\"after_placed\",\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"27\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"displayDays\":90,\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"}}",
+          "scene": "popup"
+        },
+        "popupTitle": "サステナビリティ",
+        "promiseId": 38,
+        "title": "AliExpressのサステナビリティ",
+        "titleBold": false,
+        "titleColor": "#4BA80C"
+      },
+      "GLOBAL_DATA": {
+        "globalData": {
+          "hitHideShipToExp": true,
+          "curPagePriceInfo": {
+            "pageType": "C",
+            "promotionInfo": "{\"n_tag\":\"-29910\",\"d\":\"0\",\"u\":\"0\",\"m03_new_user\":\"-29895\",\"pisId\":\"5000000210897728\",\"disPrice\":\"226\"}"
+          },
+          "subject": "2 in 1 USB 3.0 ビデオ キャプチャ カード 4K HDMI 互換 USB 2.0 Type-C ゲーム グラバー レコード スイッチ Xbox PS5/4 ライブ ブロードキャスト用",
+          "pcFeature202507": true,
+          "wishlistParams": {},
+          "dp": null,
+          "localStr": "ja_JP",
+          "scene": "KR",
+          "pdp2pdpParam": "{\"itemStockChannelId\":400000010210032}",
+          "sellerId": 2683464005,
+          "minidetailFloating": false,
+          "siteType": "followCartPdpChoice",
+          "msiteFeature202506": false,
+          "category2": "201610201",
+          "traceId": "0b08c0c217888790445991163e0dfa",
+          "category3": "200001081",
+          "image": "https://ae-pic-a1.aliexpress-media.com/kf/S955bf6f529be40f496d852d7bd8f30a0q.jpg?has_lang=1&ver=2",
+          "regionProvinceName": null,
+          "productId": "1005008812285251",
+          "pc30": false,
+          "af": null,
+          "categoryPath": "7/200001081/201605503/201610201",
+          "category1": "7",
+          "i18n": {
+            "SKUModule": {
+              "SIZING_INFO": "Size Info",
+              "BUST_PROMPT": "Please select your bust size.",
+              "GLASSES_DIALOG_TITLE": "Prescription Detail",
+              "NV_ADD": "Sometimes seen on your prescription as \"NV, ADD, Near, Reading, or Reading Addition.\"  \"NV\" stands for \"Near-Vision.\"  This number indicates the additional magnification that is added to the distance prescription to get the reading portion of the lens in a multi-focal prescription.  We display a single NV-ADD field since it is almost always the same value for both eyes.",
+              "SPH": "SPHERE (SPH), or Spherical, refers to the refractive correction in the prescription. Minus (-) stands for near sightedness, and Plus (+) stands for far sightedness. If \"PL\" or \"Plano\" is written for the either SPH value on your prescription, you should select a value of 0.00.\r\r\nOD-SPH is spherical correction for your right eye.\r\r\nOS-SPH is spherical correction for your left eye.\r\r\nOD-SPH is spherical correction for your RIGHT eye.\r\r\nOS-SPH is spherical correction for your LEFT eye.",
+              "PUPILLARY_PROMPT": "Please select PD (Pupillary Distance).",
+              "SIZE_HOVER_TITLE": "Might be different from your local size,please see the sizing info for more information.",
+              "FLOOR_CONTENT": "Begin at the hollow space between the collarbones and pull tape straight down to the floor.",
+              "CUSTOM_SIZE_CONTENT": "Your body measurements",
+              "NV_ADD_PROMPT": "Please select NV-ADD.",
+              "PLEASE_ENTER": "入力してください",
+              "WAIST_TITLE": "Waist",
+              "WAIST_CONTENT": "Measure the smallest part of the waist.\r\r\nKeep tape slightly loose to allow for breathing room.",
+              "CYL": "CYLINDER (CYL), or Cylinder, refers to the strength of the correction for the astigmatism in the eye. It can be either positive or negative. If there is a CYL value for an eye, there must be an Axis value for that eye.\r\r\nIf \"DS\" or \"SPH\" or \"spherical\" is noted in the CYL space on your prescription, you have no astigmatism in that eye.  In that case, enter 0.00 in both the CYL and Axis.\r\r\nOD-CYL is cylinder correction for your right eye.\r\r\nOS-CYL is cylinder correction for your left eye.",
+              "SERVICE": "Servicio",
+              "BUST_CONTENT": "Wear an unpadded bra (your dress will have a built-in bra).\r\r\nPull tape across the fullest part of the bust (at nipple level).",
+              "SIZE_INFO": "サイズ情報",
+              "SIZE_INFO_DESC": "*These charts are for reference only. Fit may vary depending on the construction, materials and manufacturer.",
+              "ITEM_CONDITION_TIP": "アイテム状態",
+              "BTN_CANCEL": "Cancel",
+              "HOW_TO_MEASURE": "How to Measure",
+              "SKU_HOT_IMAGE": "https://gw.alicdn.com/imgextra/i4/O1CN01sNmYfJ24of5aszfMD_!!6000000007438-2-tps-24-24.png",
+              "SIZE_INFO_TIP": "once you know your body measurements,consult the Size Chart on the product pages for actual item measurements to determine which size you should purchase.",
+              "FLOOR_PROMPT": "Please select the hollow to floor measurement.",
+              "FLOOR_TITLE": "FLoor",
+              "SIZE_INFO_COMPARE_TIP": "To choose the correct size for you measure your body as follows",
+              "UNIT_PROMPT": "Please select unit.",
+              "SELECT": "選択",
+              "HIPS_TITLE": "Hips",
+              "HEIGHT_PROMPT": "Please select the your shoes' heel height.",
+              "WAIST_PROMPT": "Please select your waist size.",
+              "BTN_SAVE": "Save",
+              "TITLE_OPTIONAL": "{country} における現地修理保証<span>(オプショナル)</span>",
+              "SIZE_DIALOG_TITLE": "customsize",
+              "GLASSES_TIP": "Please provide the information from your medical prescription. If you have any special needs or have any questions, please contact the seller.",
+              "SIZE_CHART": "Size Chart",
+              "HIPS_PROMPT": "Please select your hips size.",
+              "SPH_PROMPT": "It looks like you forgot to enter your prescription. Please fill in the sphere, cylinder and axis.",
+              "HIPS_CONTENT": "Find the widest part of the hips or run the measurement tape around your hipbone.",
+              "BUST_TITLE": "Bust",
+              "AXIS": "AXS, or Axis, refers to the angle of the correction for the astigmatism in the eye (if one exists) from 1 to 180.  If there is an Axis value on an eye, there must be a CYL (Cylinder) value on that eye.  If there is no Cylinder value or if the value is zero, the OD Axis value is entered as 0.00.\r\r\nThe Axis value is usually written as 3 digits, which means if your Axis value is 5, it is often written as 005. This Axis value is still 5, regardless of how it is displayed.\r\r\nOD Axis is Axis correction for your right eye.\r\r\nOS Axis is Axis correction for your left eye."
+            },
+            "priceGuarantee": {
+              "brief": "",
+              "name": "",
+              "desc": ""
+            },
+            "ActionModule": {
+              "VIEW_DETAIL": "詳細を見る",
+              "WISH_MAX_NOTICE": "おっと、それはあなたがすでにリストの最大値に達しそうです",
+              "BUYER_ABLE": "この特徴は、買い手が利用できるだけです。",
+              "WISHLIST_SAVE_BUTTON": "Save",
+              "WISH_MOVE_TO_ANOTHER_LIST_TIPS": "別のリストに移動する",
+              "ADD_X_MORE": "おめでとうございます!<div class=\"before-coin-count\"></div>{coinCount} 枚のコインを獲得しました。今日は、コインの獲得を続けるための {number} つのチャンスがあります。",
+              "COMING_SOON": "まもなく",
+              "ADD_TO_CART_FAILED_TOAST": "add to cart failed",
+              "SC_ADD_SUCC": "新しい商品がショッピングカートに追加されました。",
+              "WISHLIST_PUBLIC_NOTICE": "(誰が見ることができるこのリストと共有すること)",
+              "WISH_DETAULT_LIST": "欲しい物のリスト",
+              "WISH_CREATE_LIST": "ほしい物リストを作成",
+              "WL_ERROR": "ネットワークはビジー状態です、再度お試し下さい",
+              "WISH_NAME_ALREADY_USE": "これを見るほしい物リスト名は既に使用されています",
+              "HANDLE_PC_404": "申し訳ございませんが、本ページはご利用いただけません。新しい商品ページにご案内します。",
+              "WISH_REVISELIST": "Edit Your List",
+              "ADD_TO_MY_PICKS": "カートに追加します",
+              "SC_ADD_FAILED": "追加できませんでした。ページを更新して \"カートに追加\"を再クリックしてください。",
+              "SKU_CONTINUE": "続ける",
+              "SC_HAVE": "現在ショッピングカートに{{number}}個の商品があります。",
+              "ADD_TO_CART": "カートに追加",
+              "WISH_CANCEL_WISHLIST": "Cancel",
+              "BUY_NOW": "今すぐ購入",
+              "ADD_TO_CART_TOAST": "カートに追加しました！",
+              "WISH_SYSTEM_ERROR": "おっと、システムエラー。もう一度やり直してください",
+              "SC_ADD_MAX": "最大{{number}}個の商品をカートに入れることができます。 さらに追加する前に、いくつか商品を削除してください。",
+              "SC_VIEW": "ショッピングカートを見る",
+              "WISH_YOUMAYLIKE": "You may also like",
+              "WISH_VIEW_WISH_LIST": "閲覧欲しい物リスト",
+              "SC_RECOMMEND": "この商品の購入者は、次の商品も購入しています:",
+              "CONTINUE": "買い物を続ける",
+              "ADDED_TO": "{wishlist} に追加",
+              "ORDER_NOW": "今すぐ注文",
+              "SELECT_TIP": "すべての製品オプションをお選びください。",
+              "NO_LONGER_AVAILABLE": "申し訳ございません。この項目はもはや利用できません。",
+              "PREVIEW_PERIOD": "2019/3/21 00:00:00 GMT-0700,2019/3/27 23:59:59 GMT-0700",
+              "WISH_MAX_GROUP": "申し訳ありませんが、これ以上ウィッシュリストを作成できません",
+              "FIND_SIMILAR": "似ている商品を探す",
+              "WISHLIST_PUBLIC_TIP": "Public"
+            },
+            "StoreModule": {
+              "COUSTOMER_SERVICE": "お客様サービス",
+              "VISIT_STORE": "マイストアを見る",
+              "CONTACT_SELLER": "連絡先",
+              "FOLLOWING_STATE": "以下",
+              "UNFOLLOWING_STATE": "フォロー",
+              "POSITIVE_FEEDBACK": "肯定的なフィードバック",
+              "FOLLOWERS": "フォロワー",
+              "FOLLOWER": "Follower",
+              "TOP_SELLER": "トップブランド",
+              "STORE_CATEGORIES": "ストアカテゴリー"
+            },
+            "RecommendModule": {
+              "MORE_FROM_THIS_SELLER": "セラーのおすすめ",
+              "YOU_MAY_LIKE": "お客様へのおすすめ",
+              "TOP_SELLING": "トップセーリング",
+              "FROM_OTHER_SELLER": "おすすめ",
+              "VIEW_MORE_LINK": "もっと見る",
+              "PRODUCT_SOLD": "販売"
+            },
+            "StoreInfo": {
+              "shippingSpeed": "配送速度",
+              "below_average": "Below Average",
+              "plCompliance": "The seller is responsible for delivery. AliExpress may assist in facilitating delivery by offering optional logistical support. For more details, please refer to business information page.",
+              "soldBy": "販売元",
+              "trader": " ",
+              "higher_seller": "{0} out of 5 ({1} ratings), {2}% higher than other sellers",
+              "storeId": "ストアNo.",
+              "openSince": "開業",
+              "above_average": "Above Average",
+              "itemAsDescribed": "商品説明",
+              "lower_seller": "{0} out of 5 ({1} ratings), {2}% lower than other sellers",
+              "businessInfo": "会社情報",
+              "equal": "Equal",
+              "storeName": "名称",
+              "storeInfo": "ストア情報",
+              "storeRating": "販売者の詳しい評価",
+              "businessAddress": "所在地",
+              "communication": "コミュニケーション",
+              "equal_seller": "{0} out of 5 ({1} ratings), equal to other sellers"
+            },
+            "ItemDetailResp": {
+              "VIEW_MORE": "もっと見る",
+              "ASK_BUYERS": "顧客からお問合せ&回答",
+              "PAGE_NOT_FOUND_NOTICE": "申し訳ございませんが、こちらの商品は一時的にご利用いただけません。",
+              "VIEW_5_MORE_ANSWERS": "もっと見る",
+              "PAGE_NOT_FOUND_RCMD_TITLE": "Sorry, the page you requested can not be found:("
+            },
+            "bpFreeReturn30": {
+              "brief": "",
+              "name": "",
+              "id": "",
+              "desc": ""
+            },
+            "bpLocalDomesticReturn": {
+              "brief": "",
+              "name": "",
+              "id": "",
+              "desc": ""
+            },
+            "PriceModule": {
+              "LOT": "ロット",
+              "INSTALLMENT": "Installment",
+              "DEPOSIT": "手付金",
+              "PRE_ORDER_PRICE": "先行予約価格"
+            },
+            "ShippingModule": {
+              "HAB_BALLOON_TRAKING_AVAILABLE": "Track your order status from start to finish.",
+              "GENERAL_SHIPPING_TO": "to {0}",
+              "SELECT_SHIP_FROM_TIP": "Please select the country you want to ship from",
+              "SHIPPING_TO": "配送:",
+              "HAB_SHIPPING_TO": "配送先",
+              "CARRIER": "キャリア",
+              "TO_PROVINCE": "To {provinceName}",
+              "TO_COUNTRY": "To {countryName}",
+              "TO_CITY": "To {cityName}",
+              "CAN_NOE_DELIVER_NOTE": "この供給者/配送会社は、お客様が選択した国/地域への配送を行っていません。",
+              "ESTIMATED_DELIVERT_ON_DAYS": "配送予定期間: {0}日",
+              "CHOOSE_DELIVERT_METHOD": "輸送方法",
+              "HAB_BALLOON_DOOR_DELIVERY": "Products delivered directly to your door.",
+              "DELIVERED_BY": "{date} までに配達、あるいは全額返金",
+              "HBA_SHIPPING_INFO": "{countryName} まで{time} 日間で {companyName}によってお届け",
+              "IN": "in",
+              "SEARCH": "都道府県",
+              "SELECT_SHIP_FROM": "Please select the country you want to ship from",
+              "LOGISTIC_COMPOSE_AE": "AliExpressによる配達業務と保証",
+              "HBA_BALLOON_TIPS": "hba balloon tips",
+              "GENERAL_SHIPPING_DELIVERY": "配送先",
+              "VAT_DE_DETAIL": "購入者はドイツの輸入申告者です",
+              "SELECTED": "Selected",
+              "HBA_DOR_DELIVERY": "COD Available on APP",
+              "ESTIMATED_DELIVERT_ON_DATE": "{date}に配送予定",
+              "OR_FULL_REFOUND": "全額返金",
+              "LOGISTIC_COMPOSE_BRAND_MIND": "一括配送",
+              "PLAZA_SHOP_NOW_RECEIVE_ON": "Buy it now and receive it on {date} (est.)",
+              "LOGISTIC_COMPOSE_ORDERS_OVER": "{0} を超えるご注文",
+              "FAST_SHIPPING": "Fast Shipping",
+              "CAN_NOT_DELIVER": "配送できません",
+              "HBA_TRAKING_AVAILABLE": "Tracking Available",
+              "DAYS": "days",
+              "GENERAL_SHIPPIING_FROM": "From {0}",
+              "GENERAL_SHPPING_MORE": "その他のオプション",
+              "FREE_SHIPPING": "無料配送",
+              "COST": "コスト",
+              "BALLOON_TIP": "If you finish the payment today, your order will arrive within the estimated delivery time.",
+              "SHIP_MY_ITEM_TO": "に輸送します",
+              "HAB_BALLOON_VAT_INCLUDED": "商品の価格上場含む付加価値税。",
+              "TRACKING": "追跡",
+              "LOGISTIC_COMPOSE_SPEED_UP": " までスピードアップ",
+              "PLAZA_BALLOON_TIP": "This delivery date is estimated. The calculation is based on several factors, including the address, shipping option selected and the availability shown on the product detail page.",
+              "HBA_TVAT_INCLUDED": "付加価値税付属",
+              "ESTIMATED_DELIVERY": "送達見込み",
+              "TO_WHERE": "To where",
+              "VAT_NUMBER": "VAT number:",
+              "TO_VIA": "{companyName}によって{countryName}へ",
+              "APPLY": "適用"
+            },
+            "BuyerProtectionModule": {
+              "PLAZA_BUYER_PROTECTION_CONTENT": "",
+              "PLAZA_BUYER_PROTECTION_TITLE": "",
+              "PLAZA_BUYER_PROTECTION_TIP": ""
+            },
+            "bpSpainFreeReturn": {
+              "brief": "",
+              "name": "",
+              "id": "",
+              "desc": ""
+            },
+            "Common": {
+              "recommendationsFrom": "{0} のおすすめ",
+              "sharePc": "共有\n",
+              "sharePcContent": "SNSで共有する",
+              "skuEditSelection": "編集",
+              "description": "さらに表示",
+              "specification": "さらに表示",
+              "miniDetailCopyResp": "コピーしました",
+              "locale-app-81|M7YmEk_zk6LmT": "免責事項：本コンテンツはAI生成であり、販売者の見解を反映するものではありません。プラットフォームおよび販売者は関連する法的責任を負いません。",
+              "plusSizeSkipToast": "類似商品に切り替えました",
+              "skuSelections": "選択内容",
+              "feedback": "さらに表示",
+              "youMayAlsoLike": "こちらもお好きかも知れません",
+              "miniDetailCopyLink": "商品リンクをコピーする",
+              "deliveryBlockTitle": "お届け",
+              "outOfStock": "Out of stock",
+              "toast4MinLimitCount": "最低注文数は{count}点ですが、販売者の在庫が不足しています",
+              "topSellingsFrom": "{0} のベストセラー",
+              "similarRecommond": "関連アイテム",
+              "youMayAlsoLikeSeeMore": "さらに表示",
+              "qanda": "さらに表示",
+              "locale-app-81|lcuT2LGELZuu7": "AI による商品概要"
+            },
+            "buyerProtection": {
+              "brief": "",
+              "name": "",
+              "desc": ""
+            },
+            "BusinessModule": {
+              "downloadImageButton": "ダウンロード",
+              "addToCartMaximumTips": "{0} 個の追加に成功しました (購入可能な最大数量)。",
+              "downloadImageSelectAll": "すべて選択",
+              "downloadImageTitle": "画像のダウンロード"
+            },
+            "QuantityModule": {
+              "LOT": "ロット",
+              "LOTS": "lots",
+              "BUY_LIMIT": "お一人様につき{limit} {unit} まで",
+              "QUANTITY": "数量",
+              "OFF_OR_MORE": "{discount}% オフ ({number} {unit} 以上)",
+              "ONLY_QUANTITY_LEFT": "残り{availQuantity}個のみ",
+              "ADDTIONAL": "追加",
+              "QUANTITY_AVAILABLE": "{availQuantity} {unit} ご利用可能"
+            },
+            "OtherServiceModule": {
+              "TAB_SPECS": "明細書",
+              "PLAZA_SERVICE_SUBTITLE_PC": "Garantía en España",
+              "PLAZA_SERVICE_WARRANTY_EMAIL": "Email",
+              "PLAZA_SERVICE_WARRANTY_PHONE": "Teléfono",
+              "TAB_STORE": "ストア",
+              "PLAZA_SERVICE_WARRANTY_HOURS": "Horario",
+              "TAB_CUSTOMER_REVIEWS": "お客様のレビュー",
+              "PLAZA_SERVICE_WARRANTY_WEBSITE": "Página web",
+              "TAB_OVERVIEW": "概要",
+              "PLAZA_SERVICE_WARRANTY_BRAND": "Marca",
+              "PLAZA_SERVICE_WARRANTY_CATEGORY": "Categoría",
+              "PLAZA_SERVICE_TITLE_PC": "Garantías Plaza Tecnología",
+              "PLAZA_SERVICE_CONTENT3_3_PC": "- El sello de seguridad no esté dañado y se conserven todas las etiquetas.",
+              "TAB_CUSTOMER_SHOW": "お客様のショー",
+              "PLAZA_SERVICE_WARRANTY_TITLE": "Servicio técnico oficial",
+              "TAB_REPORT_ITEM": "商品を通報します",
+              "TAB_SERVICE": "Service",
+              "PLAZA_SERVICE_CONTENT3_1_PC": "Dispones de 15 días para devolver tu pedido de Plaza Tecnología siempre y cuando:",
+              "PLAZA_SERVICE_CONTENT3_2_PC": "- Se encuentre en perfectas condiciones y en el embalaje original.",
+              "PLAZA_SERVICE_CONTENT1_PC": "Todos los artículos de Plaza Tecnología son 100% originales, están cubiertos por la protección al comprador de AliExpress y tienen una garantía oficial de 2 años en España a tramitar en el servicio técnico oficial en España designado por el fabricante.",
+              "PLAZA_SERVICE_SUBTITLE2_PC": "Envío y entrega",
+              "PLAZA_SERVICE_CONTENT2_PC": "Los envíos son gratis sin compra mínima. Realizamos todos nuestros envíos desde España, por lo que no existen gastos adicionales de aranceles o aduanas. El tiempo de entrega en cualquier punto de la península es de 1 a 3 días laborables desde el momento de la compra. De momento no enviamos a Canarias, Ceuta ni Melilla.",
+              "PLAZA_SERVICE_SUBTITLE3_PC": "Devoluciones"
+            },
+            "CrossLinkModule": {
+              "BREADCRUMB_PART2": "似ている商品はこちらにあります",
+              "BREADCRUMB_PART1": "この製品は以下に属します",
+              "CROSSLINK_RELATED_SEARCHES": "他の人はこちらも検索"
+            },
+            "bpLocalReturn15": {
+              "brief": "",
+              "name": "",
+              "id": "",
+              "desc": ""
+            },
+            "TitleModule": {
+              "REVIEWS": "レビュー",
+              "VIEW_ALL_REVIEWS": "全部のコメント",
+              "REVIEW": "レビュー",
+              "VIEW_OTHER_TITLE": "多言語での表示のタイトル（機械翻訳）",
+              "VIEW_EN_TITLE": "英語でのオリジナルタイトルを見る",
+              "FREEBIE_REVIEW": "Review Of Freebies ",
+              "FREEBIE_REVIEWS": "景品のレビュー"
+            },
+            "MiddleBannerModule": {
+              "END_IN": "",
+              "DAYS": "",
+              "DAY": "",
+              "STARTS_IN": ""
+            },
+            "CouponModule": {
+              "GET_COUPONS": "クーポンを獲得",
+              "SCP_ERR_HAVE": "申し訳ありませんが、このストアのクーポンをすでに獲得しています。すぐにクーポンを使いましょう。",
+              "OFF_ON": "{money2}で{money1}オフ",
+              "ORDER_OVER": "以上のご注文",
+              "code52Title": "申し訳ありません。現在ご利用いただけるクーポンは、すべて発行が完了しました。",
+              "GET_IT": "今すぐ入手",
+              "GET_NOW": "今すぐ入手",
+              "GET_MORE": "さらに入手",
+              "systemError": "問題が発生しました。もう一度試してください。",
+              "OFF_PER": "{money2}につき{money1}オフ",
+              "STORE_COUPON": "店舗クーポン",
+              "SHOP_COUPONE_TIME_START_END": "",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_ALREADY_HAVE": "申し訳ありません。すでに新しいユーザーのクーポンはお持ちです。",
+              "code50Title": "申し訳ありません。クーポンを発行できません。 もう一度お試し下さい。",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_NOT_AVAILABLE_NOW": "申し訳ありません。新しいユーザーのクーポンは現在利用できません。",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_GROUP_LIMIT": "申し訳ありません。最高限度の新しいユーザーのクーポンをお持ちです。",
+              "code14Title": "すでに数多くのセレクト クーポンを受け取っています。他のお客様にも残してあげてください。",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_NOT_NEW_USER": "申し訳ありません。新しいユーザーのみ、このクーポンを獲得する資格があります。",
+              "SHOP_PROMO_CODE_COPIED": "プロモーション コードがコピーされました。",
+              "ADDED": "追加",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_SECURITY": "お客様のアカウントのセキュリティを高めるために、別のデバイスを使ってサインインしてください。",
+              "SHOP_PROMO_CODE_TITLE": "ストアのプロモーション コード",
+              "NEW_USER_COUPON_ACQUIRE_FAIL": "おっと、何かがうまくいきませんでした! もう一度お試し下さい。",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_LIMIT_DAY": "申し訳ありません。新しいユーザーのクーポンは、今日はご利用になれません。",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_REGISTER_COUNTRY_LIMIT": "お客様の登録された国で、このクーポンが引き換え可能であることをご確認下さい。",
+              "SCP_ERR_NONE": "申し訳ありません。これらクーポンはすべて分配されました。",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_GRANT_ERROR": "申し訳ありません。このクーポンの獲得に失敗しました。",
+              "code17Title": "申し訳ありません。このクーポンはもう使用できません。",
+              "SHOP_COUPONE_TIME_EXPIRES": "{0}が満了する",
+              "SHOPPONG_CREDIT": "SHOPPONG CREDIT",
+              "EXCHANGE_MORE": "さらに交換",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_SYSTEM_ERROR": "おっと、何かがうまくいきませんでした! もう一度お試し下さい。",
+              "MY_BALANCE": "残高",
+              "INSTANT_DISCOUNT": "インスタント割引",
+              "EXCHANGE_NOW": "今すぐ交換",
+              "CROSS_STORE_VOUCHER_TIP": "{money2} 以上のご注文で、最大 {money1} まで割引されます",
+              "NEW_USER_COUPON": "新しいユーザーのクーポン",
+              "GET": "獲得",
+              "SHOP_PROMO_CODE_COP_FAILED": "コピーに失敗しました。もう一度お試しください。",
+              "code-30005Title": "お客様はまだ十分なコインをお持ちではないようです。",
+              "MY_COINS": "マイ コイン",
+              "BUY_GET_OFF": "{fullpiece} を買うと {fulldiscount} オフになります",
+              "code51Title": "",
+              "PANEL_TITLE": "クーポン割引",
+              "NEW_USER_COUPON_ACQUIRE_FAIL_LIMIT_HOUR": "申し訳ありません。新しいユーザーのクーポンはこの時間はご利用になれません。",
+              "CROSS_STORE_VOUCHER": "セレクトクーポン"
+            },
+            "bpDomesticReturn7": {
+              "brief": "",
+              "name": "",
+              "id": "",
+              "desc": ""
+            }
+          },
+          "productInfo": {
+            "categoryId": 201610201,
+            "detailUrl": "https://www.aliexpress.com/item/1005008812285251.html",
+            "hasStock": true,
+            "productId": "1005008812285251",
+            "sexyItemShow": false
+          },
+          "relationProductId": null,
+          "eventInfo": {
+            "clcEvent": {
+              "discountRate": 89,
+              "orderAvailable": true,
+              "originalPriceCent": 2057,
+              "promotions": "platformItemSubsidy-ITEM-5000000210897728,realSuperDeals-ITEM-5000000208089353",
+              "itemTags": [
+                86914,
+                290957,
+                2022549,
+                2066580,
+                2066579,
+                299658,
+                648839,
+                306962,
+                1976581,
+                236830,
+                2066621,
+                1097911,
+                2066616,
+                2066615,
+                2066614,
+                2066613,
+                2067253,
+                2066612,
+                2066611,
+                2066610,
+                2066609,
+                2066608,
+                2066607,
+                2066606,
+                2006319,
+                2034478,
+                2066605,
+                2066604,
+                2066603,
+                2066602,
+                1966891,
+                2020390,
+                339135,
+                1961383,
+                2066783,
+                2066782,
+                526666,
+                382153,
+                526940,
+                2065739,
+                381904,
+                2019016,
+                2000201,
+                1998022,
+                1998021,
+                2066813,
+                56804,
+                1098872,
+                242413,
+                1517927,
+                1997551,
+                1961321,
+                273138,
+                111478,
+                2066791
+              ],
+              "discountPriceCent": 226,
+              "imageUrl": "https://ae-pic-a1.aliexpress-media.com/kf/S955bf6f529be40f496d852d7bd8f30a0q.jpg_960x960.jpg?has_lang=1&ver=2",
+              "skuId": "12000046769980162",
+              "categoryInfo": {
+                "categoryIds": [
+                  7,
+                  200001081,
+                  201605503,
+                  201610201
+                ],
+                "leafCategoryId": "201610201",
+                "rootCategoryId": "7"
+              }
+            }
+          },
+          "regionCityName": null,
+          "crawler": false,
+          "offlineInfo": {
+            "itemStatus": 0
+          },
+          "hideQA": true,
+          "buriedLogInfo": {
+            "buriedData": "{\"choice\":true,\"choice3\":false}",
+            "priceCenterBuriedData": "23.3065!88.26"
+          },
+          "aff_platform": null,
+          "hideCartSideBar": false,
+          "toolCodes": [
+            "flexiCoin"
+          ],
+          "callHouyiPop": false,
+          "reviewNewStyle": false,
+          "regionCountryName": "日本",
+          "productTagInfo": {
+            "mergeChoice": true,
+            "oneStopServiceProduct": true,
+            "otherAppTagMap": {
+              "eticketStructContent": "false"
+            },
+            "otherPcTagMap": {
+              "eticketStructContent": false
+            }
+          },
+          "httpStatus": 0,
+          "itemStatus": 0,
+          "sk": null,
+          "storeName": "Shop1103815087 Store",
+          "choiceIcon": "https://ae-pic-a1.aliexpress-media.com/kf/Sd0319ac189e74bfeada4437630b1e37aS/232x98.png",
+          "eticketStructContent": false,
+          "imageOptimize": true,
+          "recommendInfo": {
+            "recommendInfo": {
+              "categoryId": 201610201,
+              "productType": 1,
+              "sellerAdminSeq": 2683464005,
+              "status": 0,
+              "storeId": 1103815087,
+              "supportRecommend": true,
+              "supportSellerRecommend": true
+            },
+            "sellerRecommendCount": 10,
+            "needRecommendByTag": false,
+            "recommendCount": 20,
+            "storeRecommendHoriztal": true,
+            "recommendForYouCount": 0,
+            "newPlatformRecommendParams": "{\"appId\":\"668\",\"bizRecgScene\":\"app#USDetail\",\"currentItemList\":\"1005006573054251\",\"recommendInfo\":\"{\\\"categoryId\\\":21110708,\\\"productType\\\":0,\\\"sellerAdminSeq\\\":239234800,\\\"status\\\":0,\\\"storeId\\\":5241042,\\\"supportRecommend\\\":true,\\\"supportSellerRecommend\\\":true}\",\"scenario\":\"appDetailPlatformRecommend\",\"totalCnt\":\"200\"}",
+            "newSellerRecommendParams": "{\"appId\":\"668\",\"bizRecgScene\":\"app#USDetail\",\"cellStyle\":\"grid\",\"currentItemList\":\"1005006573054251\",\"lineNum\":\"2\",\"recommendInfo\":\"{\\\"categoryId\\\":21110708,\\\"productType\\\":0,\\\"sellerAdminSeq\\\":239234800,\\\"status\\\":0,\\\"storeId\\\":5241042,\\\"supportRecommend\\\":true,\\\"supportSellerRecommend\\\":true}\",\"scenario\":\"appDetailStoreTopRecommend\",\"totalNum\":\"20\"}"
+          },
+          "aeOrderFrom": "main_detail",
+          "topCategoryId": "7",
+          "stealthSelection": false,
+          "superLinkProduct": false,
+          "cn": null,
+          "storeId": 1103815087,
+          "securityToken": null,
+          "cv": null,
+          "breadcrumb": {
+            "categoryName": "ホーム",
+            "categoryUrl": "//ja.aliexpress.com/",
+            "displayCatId": -1,
+            "kidBaby": false,
+            "pathList": [
+              {
+                "cateId": 0,
+                "name": "ホーム",
+                "remark": "",
+                "url": "//ja.aliexpress.com/"
+              }
+            ]
+          },
+          "categoryTagInfo": {
+            "canAddSkuSeries": false,
+            "virtualProduct": false,
+            "voucherProduct": false
+          },
+          "aff_trace_key": null,
+          "complaintUrl": "https://report.aliexpress.com/health/reportIndex.htm?product_id=1005008812285251",
+          "currencyCode": "JPY",
+          "categoryId": "201610201"
+        }
+      },
+      "PRICE": {
+        "discountExt": "{\"p0\":\"qtgSelectSingleX\",\"p1\":\"CAINIAO_FULFILLMENT_STD\",\"p3\":12000046769980162}",
+        "isLot": false,
+        "priceLocalConfig": "{\"from\":{\"currencySymbol\":\"円\",\"currencySymbolPosition\":\"end\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"roundOffZero\":false,\"separatorStr\":\" - \",\"single\":{\"currencySymbol\":\"円\",\"currencySymbolPosition\":\"end\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"to\":{\"currencySymbol\":\"円\",\"currencySymbolPosition\":\"end\",\"decimalPointChar\":\".\",\"showDecimal\":true,\"thousandsChar\":\",\"},\"useful\":true,\"version\":\"v1\"}",
+        "productId": 1005008812285251,
+        "region": "JP",
+        "reverseDiscountAndPrice": false,
+        "selectedSkuId": 12000046769980162,
+        "skuIdStrPriceInfoMap": {
+          "12000046769980162": {
+            "originalPrice": {
+              "currency": "JPY",
+              "formatedAmount": "2,057円",
+              "value": 2057
+            },
+            "priceFontColor": "#000000",
+            "salePriceLocal": "226円|226|",
+            "salePriceString": "226円",
+            "sellerByLot": false
+          }
+        },
+        "skuPriceInfoMap": {
+          "12000046769980162": {
+            "originalPrice": {
+              "currency": "JPY",
+              "formatedAmount": "2,057円",
+              "value": 2057
+            },
+            "priceFontColor": "#000000",
+            "salePriceLocal": "226円|226|",
+            "salePriceString": "226円",
+            "sellerByLot": false
+          }
+        },
+        "skuSecondPriceInfoMap": {},
+        "targetSkuPriceInfo": {
+          "originalPrice": {
+            "currency": "JPY",
+            "formatedAmount": "2,057円",
+            "value": 2057
+          },
+          "priceFontColor": "#000000",
+          "salePriceLocal": "226円|226|",
+          "salePriceString": "226円",
+          "sellerByLot": false
+        }
+      },
+      "SELLING_POINT_PC": {},
+      "WISHLIST": {
+        "favorited": false,
+        "storeWished": false,
+        "storeWishedCount": 887,
+        "wishItemCount": 586
+      },
+      "SHOP_CARD_PC": {
+        "benefitInfoList": [
+          {
+            "title": "#点 180日での販売数",
+            "value": "60,000+"
+          },
+          {
+            "title": "肯定的なレビュー",
+            "value": "93.6%"
+          }
+        ],
+        "businessInfo": {
+          "actionTarget": "https://shoprenderview.aliexpress.com/credential/showcredential.htm?storeNum=1103815087&_lang=ja_JP&_currency=JPY",
+          "bgColor": "#F0F3F7",
+          "text": "Seller info"
+        },
+        "fontColor": "#000000",
+        "hasStoreFeedback": false,
+        "licenseInfo": {
+          "actionTarget": "https://shoprenderview.aliexpress.com/credential/showcredential.htm?storeNum=1103815087&_lang=ja_JP&_currency=JPY",
+          "text": "会社情報"
+        },
+        "logo": "https://ae-pic-a1.aliexpress-media.com/kf/Se90fceedf9d34ad1a8979283c98a1e45I/144x144.png",
+        "sellerInfo": {
+          "adminSeq": 2683464005,
+          "aeRuSelfOperation": false,
+          "boutiqueSeller": false,
+          "companyId": 2683464005,
+          "countryCompleteName": "China",
+          "esRetailOrConsignment": false,
+          "formatOpenTime": "5月 23, 2024",
+          "hasStore": false,
+          "localSeller": false,
+          "openTime": "2024-05-23 10:29:17",
+          "openedYear": 2,
+          "payPalAccount": false,
+          "plazaElectronicSeller": false,
+          "province": "",
+          "ruConsignmentAndMarketPlace": false,
+          "ruSelfOperation": false,
+          "showPlazaHeader": false,
+          "spanishPlaza": false,
+          "storeNum": 1103815087,
+          "storeURL": "//ja.aliexpress.com/store/1103815087",
+          "topRatedSeller": false
+        },
+        "sellerLevel": "33-s",
+        "sellerPositiveNum": 8400,
+        "sellerPositiveRate": "93.6",
+        "sellerScore": 105175,
+        "sellerTotalNum": 127903,
+        "showStoreInfo": true,
+        "storeAllProductPage": "https://campaign.aliexpress.com/wow/gcp/shop-framework/index?wx_navbar_hidden=true&wx_navbar_transparent=true&shopId=1103815087&sellerId=2683464005&extParams=&productIds=&expAppPageFrameVersion=&pagePath=allProduct.htm&invitationCode=&wh_weex=true",
+        "storeHeaderResult": {
+          "tabList": []
+        },
+        "storeHomePage": "https://m.aliexpress.com/store/storeHome.htm?sellerAdminSeq=2683464005",
+        "storeName": "Shop1103815087 Store",
+        "storeNameKey": "販売者",
+        "storeStyle": "DEFAULT"
+      },
+      "RECOMMEND_PC": {
+        "hideMsiteStoreRecommend": true,
+        "hidePlatformRecommend": false,
+        "hideSimilarRecommend": false,
+        "hideStoreButton": true,
+        "hideStoreInfo": false,
+        "hideStoreRecommend": false,
+        "isSlider": true,
+        "platformPageTotalCnt": 0,
+        "recommendCount": 20,
+        "recommendForYouCount": 3,
+        "sellerRecommendCount": 10,
+        "showChoiceStoreCard": true,
+        "similarPageSize": 12,
+        "similarScenario": "pcDetailTopMoreOtherSeller"
+      },
+      "BOTTOM_BAR_PC": {
+        "bottomBarType": "default",
+        "buttonMap": {
+          "wishList": {
+            "buttonType": "wishList",
+            "enable": true,
+            "extraMap": {
+              "iconSelectedAddress": "https://ae-pic-a1.aliexpress-media.com/kf/S96a404bd2ff64135ac92bb85871460a2t/96x96.png",
+              "wishItemCount": "586",
+              "wishState": false
+            },
+            "iconAddress": "https://ae-pic-a1.aliexpress-media.com/kf/S601c7f2489bc4c2592cc78636043de15F/96x96.png"
+          },
+          "buyNow": {
+            "bgColorEnd": "#000000",
+            "bgColorStart": "#000000",
+            "buttonType": "buyNow",
+            "enable": true,
+            "extraMap": {},
+            "strokeColor": "#000000",
+            "textColor": "#FFFFFF",
+            "textContent": "今すぐ購入"
+          },
+          "addToCart": {
+            "bgColorEnd": "#FFFFFE",
+            "bgColorStart": "#FFFFFE",
+            "buttonType": "addToCart",
+            "enable": true,
+            "extraMap": {
+              "pdpCartParams": {
+                "sourceType": null
+              }
+            },
+            "strokeColor": "#000000",
+            "textColor": "#000000",
+            "textContent": "カートに追加"
+          },
+          "store": {
+            "actionTarget": "https://m.aliexpress.com/store/storeHome.htm?sellerAdminSeq=2683464005",
+            "buttonType": "store",
+            "enable": true,
+            "extraMap": {},
+            "iconAddress": "https://ae-pic-a1.aliexpress-media.com/kf/S1a4260465a2f4f8eb24f56766a46f27d2/96x96.png"
+          },
+          "message": {
+            "actionTarget": "https://www.aliexpress.com/p/message/index.html?fromCode=product&accountType=12&sessionType=103&productId=1005008812285251&accountid=2683464005&sellerSeq=2683464005&sellerAdminSeq=2683464005",
+            "buttonType": "message",
+            "enable": true,
+            "extraMap": {
+              "textContent": "質問する"
+            },
+            "iconAddress": "https://ae-pic-a1.aliexpress-media.com/kf/S401b1fb8046b4c14bc9c23807a1a26b5f/96x96.png",
+            "textContent": "質問する"
+          }
+        },
+        "extraInfo": {
+          "wishItemCount": "586",
+          "quickOrder": true,
+          "wishState": false
+        },
+        "fastCheckout": false,
+        "hideAddCart": false,
+        "hideBuyNow": false,
+        "maxPurchaseNum": 1,
+        "orderUrl": "https://www.aliexpress.com/p/trade/confirm.html",
+        "pdpBuyParams": {},
+        "pdpCartParams": {
+          "sourceType": null
+        },
+        "shoppingCartUrl": "https://www.aliexpress.com/p/shoppingcart/index.html",
+        "showCoinPromotionMark": false
+      },
+      "MIND": {
+        "bgImage": "https://ae-pic-a1.aliexpress-media.com/kf/Sa7004e59b42548f8b589be0e50b7eabcf/1500x180.png",
+        "content": "AliExpressの保証",
+        "icon": "https://ae-pic-a1.aliexpress-media.com/kf/S15ef57b9912e41a1aab1971fec57b0afM/232x96.png",
+        "textColor": "#191919",
+        "useV2": false
+      },
+      "PRODUCT_TITLE": {
+        "text": "2 in 1 USB 3.0 ビデオ キャプチャ カード 4K HDMI 互換 USB 2.0 Type-C ゲーム グラバー レコード スイッチ Xbox PS5/4 ライブ ブロードキャスト用",
+        "titleMaxLine": "2"
+      },
+      "PERSONAL_INFORMATION_SECURITY": {
+        "features": {
+          "newUser": true
+        },
+        "icon": "https://ae-pic-a1.aliexpress-media.com/kf/S20dd40d7c15a41169efc247da38b1460b/64x64.png",
+        "params": {
+          "sceneType": "ONLY_CHOICE",
+          "promiseIds": "36",
+          "extParams": "{33:{\"amount\":\"150\",\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"33\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"mode\":\"passive\",\"contentShowType\":\"dynamic\",\"deliveryDays\":30,\"sceneType\":\"ONLY_CHOICE\",\"ruleVersion\":\"V4\",\"displayVersion\":\"fourPoint\",\"currency\":\"JPY\",\"moneyFormat\":\"150円\",\"status\":\"0\",\"sellerRegion\":\"CN\",\"shipTo\":\"JP\"},36:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"36\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},38:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"38\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},39:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"39\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},27:{\"freeReturnsDisplayDays\":\"withDays\",\"displayNode\":\"after_placed\",\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"27\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"displayDays\":90,\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"}}",
+          "scene": "popup"
+        },
+        "popupTitle": "安全＆個人情報保護",
+        "promiseId": 36,
+        "subContents": [
+          {
+            "content": "安全なお支払い: お客様の同意なしにお客様の個人情報を第三者と共有することはありません。",
+            "contentDesc": "お客様の同意なしにお客様の個人情報を第三者と共有することはありません。",
+            "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Scc12b027fa3448cc87533ce6997c16fez/48x48.png"
+          },
+          {
+            "content": "個人情報の保護: お客様の個人情報を保護し、安全かつ適切に管理します。",
+            "contentDesc": "お客様の個人情報を保護し、安全かつ適切に管理します。",
+            "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Scc12b027fa3448cc87533ce6997c16fez/48x48.png"
+          }
+        ],
+        "subTitle": "個人情報を安全に保護",
+        "title": "安全＆個人情報保護",
+        "titleBold": false,
+        "titleColor": "#4BA80C"
+      },
+      "COUPON_BLOCK_PC": {
+        "arrowColor": "#191919",
+        "discountPanelTitle": "割引・クーポン",
+        "discountPanelUrl": "https://www.aliexpress.com/p/pdp-marketing/index.html?_hideProgress=true&productId=1005008812285251&clientType=pc&discountExt=%7B%22p0%22%3A%22qtgSelectSingleX%22%2C%22p1%22%3A%22CAINIAO_FULFILLMENT_STD%22%2C%22p3%22%3A12000046769980162%2C%22p5%22%3Afalse%7D",
+        "endColor": "#F5F5F5",
+        "hideCouponBlock": false,
+        "newCouponBlock": true,
+        "productId": 1005008812285251,
+        "startColor": "#F5F5F5",
+        "textColor": "#000000",
+        "upperCouponBlockViewList": [],
+        "webCouponBlockParam": {
+          "clientType": "pc",
+          "cutFlow": "true",
+          "discountExt": "{\"p0\":\"qtgSelectSingleX\",\"p1\":\"CAINIAO_FULFILLMENT_STD\",\"p3\":12000046769980162}",
+          "recBizScene": "app#ChoiceDetail#JP",
+          "targetPanel": "global"
+        }
+      },
+      "SKU": {
+        "extraInfo": {
+          "skuCountThreshold4ShowSmallImage": 20
+        },
+        "hasSkuImage": true,
+        "hasSkuImagePropertyId": 14,
+        "inSkuAboveBlacklist": false,
+        "selectedSkuAttr": "14:691#USB3.0",
+        "selectedSkuId": 12000046769980162,
+        "selectedSkuIdStr": "12000046769980162",
+        "selectedSkuSaleable": true,
+        "skuImageSize": 1,
+        "skuPaths": [
+          {
+            "path": "14:691",
+            "salable": true,
+            "skuAttr": "14:691#USB3.0",
+            "skuId": 12000046769980162,
+            "skuIdStr": "12000046769980162",
+            "skuStock": 11
+          }
+        ],
+        "skuProperties": [
+          {
+            "hasSkuImage": true,
+            "isShowTypeColor": false,
+            "showType": "none",
+            "showTypeColor": false,
+            "sizeInfo": {
+              "hasSizeInfo": false,
+              "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Sbc534a10bc2044448f9aa271540236800/36x36.png",
+              "sizeInfoUrl": "https://www.aliexpress.com/p/secondaryPage/size-chart.html?_pid=1005008812285251&mid=2683464005&_locale=ja_JP&version=2",
+              "title": "サイズチャート"
+            },
+            "skuPropertyId": 14,
+            "skuPropertyName": "カラー",
+            "skuPropertyValues": [
+              {
+                "propertyValueDefinitionName": "USB3.0",
+                "propertyValueDisplayName": "USB3.0",
+                "propertyValueIdLong": 691,
+                "propertyValueName": "GRAY(灰色)",
+                "showHot": false,
+                "skuColorValue": "#999",
+                "skuPropertyImagePath": "https://ae-pic-a1.aliexpress-media.com/kf/S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg",
+                "skuPropertyImageSummPath": "https://ae-pic-a1.aliexpress-media.com/kf/S1a37dc15ee0f4fbba487345e2e0f1ac08.jpg_120x120.jpg_.webp"
+              }
+            ]
+          }
+        ],
+        "skuSupportClothes": false,
+        "stealthSelection": false,
+        "supportClothesSku": false
+      },
+      "DELIVERY_GUARANTEE_SERVICE": {
+        "hideDeliveryGuaranteeService": false,
+        "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Sa62ad0e987d94b87bd21f5d52ebecabcj/64x65.png",
+        "params": {
+          "sceneType": "ONLY_CHOICE",
+          "promiseIds": "33",
+          "extParams": "{33:{\"amount\":\"150\",\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"33\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"mode\":\"passive\",\"contentShowType\":\"dynamic\",\"deliveryDays\":30,\"sceneType\":\"ONLY_CHOICE\",\"ruleVersion\":\"V4\",\"displayVersion\":\"fourPoint\",\"currency\":\"JPY\",\"moneyFormat\":\"150円\",\"status\":\"0\",\"sellerRegion\":\"CN\",\"shipTo\":\"JP\"},36:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"36\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},38:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"38\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},39:{\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"39\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"},27:{\"freeReturnsDisplayDays\":\"withDays\",\"displayNode\":\"after_placed\",\"CROWD_TYPE_threeOrderNewUser\":\"threeOrderNewUser\",\"promiseIds\":\"27\",\"platformType\":\"DESKTOP\",\"extendPlatform\":\"PC\",\"crowdValueList\":\"-29900,-29910,-29883\",\"userId\":9999,\"countryTo\":\"JP\",\"scene\":\"detail\",\"sceneType\":\"ONLY_CHOICE\",\"currency\":\"JPY\",\"displayDays\":90,\"sellerRegion\":\"CN\",\"status\":\"0\",\"shipTo\":\"JP\"}}",
+          "scene": "popup"
+        },
+        "popupTitle": "配送保証",
+        "promiseId": 33,
+        "subContents": [
+          {
+            "content": "150円配達遅延クーポン",
+            "contentDesc": "ご注文が最長の推定配達日までに届かない場合、48時間後に150円クーポンコードを獲得できます。",
+            "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Scd1cd23d09d14dc8a7ddf403d059bec4I/48x48.png"
+          },
+          {
+            "content": "紛失補償",
+            "contentDesc": "追跡詳細で荷物が「輸送中に紛失」と表示されている場合は、返金を申請してください。その後に到着した場合でも、返送する必要はなく、そのままお手元にお持ちください。\n*現在、以下の配送方法は配送保証の対象外となります。\n· AliExpress セレクション スーパー エコノミー グローバル）\n· カイニャオ スーパー エコノミー\n· カイニャオ スーパー エコノミー 特殊商品用\n· カイニャオ スーパーエコノミーグローバル\n· AliExpress スプレス セーバーシッピング\n· カイニャオ セーバーシッピング 特殊商品用\n· AliExpress セレクション セーバー\n· フライト スペシャル エコノミー\n· サンユー スペシャル エコノミー\n· トップユー スペシャル エコノミー\n· 店舗独自の配送方法",
+            "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Scd1cd23d09d14dc8a7ddf403d059bec4I/48x48.png"
+          },
+          {
+            "content": "破損補償",
+            "contentDesc": "商品が破損した場合は返金を申請してください",
+            "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Scd1cd23d09d14dc8a7ddf403d059bec4I/48x48.png"
+          },
+          {
+            "content": "30 日までに届かない場合は返金",
+            "contentDesc": "1)5日or7日お届けタグが付いている商品が出荷後14日以内に配達しない場合は全額返金します。\n2)配送保証タグが付いている商品が出荷後30日以内に配達しない場合は全額返金します。\n3)返金を申請した後に商品が届いても返送する必要はなく、そのままお手元にお持ちください",
+            "icon": "https://ae-pic-a1.aliexpress-media.com/kf/Scd1cd23d09d14dc8a7ddf403d059bec4I/48x48.png"
+          }
+        ],
+        "title": "配送保証",
+        "titleBold": false,
+        "titleColor": "#4BA80C"
+      }
+    }
+  },
+  "ret": [
+    "SUCCESS::调用成功"
+  ],
+  "traceId": "0b08c0c217888790445991163e0dfa",
+  "v": "1.0"
+}

@@ -1,0 +1,37 @@
+name: Publish
+
+# Publishes to JSR when a version tag is pushed.
+#
+# JSR authenticates through GitHub's OIDC token, so no secret needs to be
+# stored. The `id-token: write` permission below is what makes that work.
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      # Publishing a build that does not pass its own checks is not worth the
+      # convenience of skipping them.
+      - name: Check
+        run: |
+          deno fmt --check
+          deno lint
+          deno check mod.ts cli/main.ts
+          deno test --allow-read tests/unit/
+
+      - name: Publish
+        run: deno publish
