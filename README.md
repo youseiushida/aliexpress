@@ -191,13 +191,21 @@ all.
 comes out at 239-295 characters against a browser's 391 — short enough that AliExpress refuses it.
 Minting alone is therefore **not sufficient** on a flagged machine, whichever page it loads from.
 
-The value is reusable, so it is needed once. Open any AliExpress page, read `_baxia_sec_cookie_`
-from `document.cookie`, and hand the whole thing over — the library extracts the field:
+A browser issues a usable one on every page load, so the value need not come from an existing
+session — one taken from a freshly opened product page works. Open any AliExpress page and run this
+in the DevTools console:
+
+```js
+JSON.parse(decodeURIComponent(document.cookie.match(/_baxia_sec_cookie_=([^;]*)/)[1])).epssw;
+```
 
 ```sh
-export ALIEXPRESS_EPSSW='%7B%22lwrid%22%3A…'   # the cookie value, as copied
+export ALIEXPRESS_EPSSW='14*0v4N3Mt…'   # or paste the whole cookie value; either is accepted
 aliexpress product 1005008812285251 --mint --locale ja_JP --currency JPY --country JP
 ```
+
+Length is not the test: a 323-character value taken live was accepted where a 295-character JSDOM
+one was refused. The content has to be genuine, and only a real browser produces it.
 
 With it, mints are accepted and detail lookups work again; without it the CLI says so on stderr
 rather than failing mysteriously. `ALIEXPRESS_COOKIE` remains the alternative: hand over the whole
