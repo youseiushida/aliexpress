@@ -137,22 +137,43 @@ The two halves of this library sit behind very different gates, and it is worth 
 number of lookups it starts answering `RGV587_ERROR` — while search from the same address stays
 perfectly healthy — and once that happens the refusal lasts a long time.
 
-What is actually going on, established by experiment rather than guesswork: the detail path requires
-a `_baxia_sec_cookie_` once a caller has been flagged. In one browser, on one connection, the
-identical request reached signature validation with cookies attached and was refused at the edge
+What is actually going on, established by experiment rather than guesswork: the MTOP detail call
+requires a `_baxia_sec_cookie_` once a caller has been flagged. In one browser, on one connection,
+the identical request reached signature validation with cookies attached and was refused at the edge
 with `credentials: "omit"`. Dropping only `_baxia_sec_cookie_` reproduced the refusal; dropping
-`cna`, `xman_us_f` or `acs_usuc_t` changed nothing.
+`cna`, `xman_us_f` or `acs_usuc_t` changed nothing. Read that narrowly: it is about
+`mtop.aliexpress.pdp.pc.query` seen from a client already under suspicion. The HTML routes behave
+differently, and an unflagged browser needs no cookie at all for either (below).
 
 That cookie cannot be forged. It is a ~1 KB opaque blob written by Alibaba's anti-bot script, no
-HTTP response ever sets it, and a plausible-looking substitute is rejected. Neither is there a way
-around the API: the product page is client-rendered, so its HTML carries no data, and
-`mtop.aliexpress.pdp.pc.query` is the only detail API that exists.
+HTTP response ever sets it, and a plausible-looking substitute is rejected.
+`mtop.aliexpress.pdp.pc.query` is the only detail _API_ that exists, but it is not necessarily the
+only source: an unflagged browser fetching `/item/<id>.html` gets ~75 KB of HTML that does contain
+`runParams`, so the page is not as empty as the API-only framing suggests. That route is gated too
+(below) and this library does not use it, so treat it as a lead rather than a supported path.
 
-The flag is what turns the cookie into a requirement — an unflagged client fetches detail happily
-without one. So pacing is the whole game. Detail gets its own budget (`minDetailRequestInterval`, 3s
-by default) on top of the shared throttle, and for product research the shape that works is: search
-broadly, narrow using the search fields you already have, and spend detail lookups only on the
-shortlist.
+### The gate widens as you probe it
+
+The flag is not a fixed judgement about your client, and this is the part worth internalising before
+trying to engineer around it. Over one session of repeated cold requests, the same URL flipped:
+`/w/wholesale-esp32.html` served 768 KB, then, with nothing about the client changed, answered the 2
+KB baxia punish stub three times running. The gate started on `/item/*.html` and grew to cover the
+search page. Nothing client-side was touched between those measurements.
+
+So do not read a refusal as a property of your setup. Measured and eliminated as discriminators, in
+a browser refused at the same moment one on the same address was served: cookies (a cookieless
+`credentials: "omit"` fetch and one with `_baxia_sec_cookie_` deleted both succeed in an unflagged
+browser), the user agent string, request headers and their order, `Sec-Fetch-*` context, HTTP/1.1 vs
+h2 vs h3, `navigator.webdriver`, Chrome versus Edge, the HTTP cache, and a real TLS ClientHello
+difference — a fresh profile sends extension `0xCA34` and an established one does not, and
+suppressing it changes nothing. None of them flip the verdict.
+
+What does correlate is how much cold traffic the caller has just produced. Pacing is therefore the
+whole game, and probing the block makes it worse rather than teaching you anything.
+
+Detail gets its own budget (`minDetailRequestInterval`, 3s by default) on top of the shared
+throttle, and for product research the shape that works is: search broadly, narrow using the search
+fields you already have, and spend detail lookups only on the shortlist.
 
 If you are already flagged and need detail now, there are two ways back.
 
